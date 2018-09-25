@@ -28,5 +28,4 @@ Lecturer 6-7, Probabilistic brain: 1,4<br>
 Lecturer 7, Sensory: Visual System: 1,?<br>
 Lecturer 8, Deep learning: 5,6<br>
 Lecturer 9: Sensory: Auditory cortex 1,?<br>
-
-etc.
+...
