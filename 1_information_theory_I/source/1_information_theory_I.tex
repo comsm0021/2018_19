@@ -36,12 +36,12 @@ in your final grade; for simplicity a first, a second or a third, on
 the application form. Now, your grade isn't random, there might be a
 random element, but it is also the result of your ability to do well
 in exams. Furthermore, your potential employer is interested in your
-grade precisely because it isn't random, which some employers, perhaps
-not to the degree you imagine, think is related to your ability to
-perform in the role they are offering. However, until they read what
-you have written they do not know your grade and so, to them, it is
-like performing a random experiment and it can be modelled using a
-random variable.
+grade precisely because it isn't random, some employers, perhaps not
+to the degree you imagine, think is related to your ability to perform
+in the role they are offering. However, until they read what you have
+written they do not know your grade and so, to them, it is like
+performing a random experiment and it can be modelled using a random
+variable.
 
 In fact, most situation we use a random variable for are like this;
 the variable models something we don't know rather than something that
@@ -94,13 +94,13 @@ case the employer would have no idea what the answer to the question
 \lq{}what grade did you get?\rq{} is going to be; as it is, they have
 a reasonable idea the answer might be \lq{}a second\rq{}.
 
-As another similar example, before I left Ireland I had a colleague
+As another similar example@ before I left Ireland I had a colleague
 called Stefan. Whenever the economy, this was during the so called
 Celtic tiger, was discussed he used to say \lq{}it will
 crash\rq{}. Now it turns out he was right; but his answer wasn't very
 informative because I knew what he was going to say before he said it,
 I knew he would say \lq{}it will crash\rq{} and so talking to him was
-very boring. 
+very boring and not very informative, even though he was correct.
 
 The theory of information starts with an attempt to allow us to
 quantify this. 
@@ -238,7 +238,6 @@ usually there is a sort of rounding error because the codes have
 integer length. However, the source coding theorem guarantees that the
 most efficient code will attain or nearly attain its limit.
 
-
 Finally, to return to the exam grade example. The distribution we looked at has
 \begin{equation}
 H(X)=-0.684\log_2{.684}-0.386\log_2{0.159}=1.4
@@ -259,6 +258,62 @@ grade in the lowers $16\%$, maybe they thing these people are more
 creative. In this situation the new system would be worse, they may
 gain more information, but not the specific piece of information they
 need!
+
+\subsection*{Joint entropy and onditional entropy}
+
+Typically we want to use information theory to study the relationship
+between two random variables. The object which quantifies this is
+mutual information. However, before discussing mutual information it
+is useful to consider conditional entropy. Given two random variable
+$X$ and $Y$ the probability of getting the pair $(x,y)$ is given by
+the \textbf{joint probability} $p_{(X,Y)}(x,y)$. The \textbf{joint entropy} is just the entropy of the joint distribution:
+\begin{equation}
+H(X,Y)=-\sum_{x,y}p_{X,Y}(x,y)\log_2{p_{X,Y}(x,y)}
+\end{equation}
+
+Now, recall that
+$p_{X|Y}(x|y)$ is the \textbf{conditional probability} of $x$ given $y$; if we
+know that a pair drawn from the joint probability has $Y=y$ it gives
+the probability that the pair is $(x,y)$. This means
+\begin{equation}
+p_{(X,Y)}(x,y)=p_{X|Y}(x|y)p_Y{y}
+\end{equation}
+In other words, the probability of $(x,y)$ is the probability of $y$
+multiplied by the probability of $x$ given that we know $Y=y$. The
+marginal probabilities are related to the conditional probabilities as well:
+\begin{equation}
+p_X(x)=\sum_y p_{X|Y}(x|y)
+\end{equation}
+
+Now, we can stick the conditional probability into the formula for the entropy:
+\begin{equation}
+H(X|Y=y)=-\sum_{x} p_{X|Y}(x|y)\log_2{p_{X|Y}(x|y)}
+\end{equation}
+This is the entropy of the variable $X$ if we know $Y=y$. The \textbf{conditional probability} is the average of this, averaged over all the values of $y$; hence
+\begin{equation}
+H(X|Y)=\sum_y p_Y(y) H(X|Y=y)=-\sum_{x,y}p_{X,Y}(x,y)\log_2{p_{X|Y}(x|y)}
+\end{equation}
+
+The conditional entropy has some nice properties; for example, if $X$ and $Y$ are independent then $p_{X,Y}(x,y)=p_X(x)p_Y(y)$ and $p_{X|Y}(x|y)=p_X(x)$ so
+\begin{equation}
+H(X|Y)=-\sum_{x,y}p_{X,Y}(x,y)\log_2{p_{X|Y}(x|y)}=H(X)
+\end{equation}
+Conversely, if $X$ is determined by $Y$, for example if $x=f(y)$ for some function $f$ then $p_{X|Y}(x|y)$ is zero for every $x$ except $f(y)$, in which case it is one and
+\begin{equation}
+H(X|Y)=0
+\end{equation}
+
+\subsection*{Exercise}
+Given the joint distribution for $(X,Y)$:
+\begin{center}
+\begin{tabular}{c|cc}
+&$x_0$&$x_1$\\
+\hline
+$y_0$&$1/4$&$1/4$\\
+$y_1$&$1/2$&$0$
+\end{tabular}
+\end{center}
+calculate $H(X,Y)$, $H(X|Y)$ and $H(Y|X)$.
 
 \bibliographystyle{apa}
 \bibliography{../../source/bibliography}{}
