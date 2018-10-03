@@ -94,7 +94,7 @@ case the employer would have no idea what the answer to the question
 \lq{}what grade did you get?\rq{} is going to be; as it is, they have
 a reasonable idea the answer might be \lq{}a second\rq{}.
 
-As another similar example@ before I left Ireland I had a colleague
+As another similar example; before I left Ireland I had a colleague
 called Stefan. Whenever the economy, this was during the so called
 Celtic tiger, was discussed he used to say \lq{}it will
 crash\rq{}. Now it turns out he was right; but his answer wasn't very
@@ -227,14 +227,14 @@ eighth the time with code words of length three, the average code
 length for each letter is $0.5\times 1 +0.25\times 2 + 0.125\times 3 +
 0.125\times 3=1.75$. This is the same as the entropy
 \begin{equation}
-H(X)=-0.5\log_2(0.5)-0.25\log_2(0.25)-0.125\log_2(0.125)-0.125\log_2(0.125)=1.75
+H(X)=-0.5\log_2(0.5)-0.25\log_2(0.25)-0.250\log_2(0.125)=1.75
 \end{equation}
 In fact, there source coding theorem shows that the entropy $H(X)$ is
 a lower bound on the average length of a message using the most
 efficient code; it is a limit on the compressibility of the
 data. Here, the code attains the bound, but this works because the
 number of letters and their probabilities were chosen to make it work;
-usually there is a sort of rounding error because the codes have
+usually there is a sort of rounding error because the code words have
 integer length. However, the source coding theorem guarantees that the
 most efficient code will attain or nearly attain its limit.
 
@@ -259,7 +259,7 @@ creative. In this situation the new system would be worse, they may
 gain more information, but not the specific piece of information they
 need!
 
-\subsection*{Joint entropy and onditional entropy}
+\subsection*{Joint entropy and conditional entropy}
 
 Typically we want to use information theory to study the relationship
 between two random variables. The object which quantifies this is
@@ -302,9 +302,10 @@ Conversely, if $X$ is determined by $Y$, for example if $x=f(y)$ for some functi
 \begin{equation}
 H(X|Y)=0
 \end{equation}
+We can also intrepret $H(X|Y)$ in a straightforward way, it is the average amount of information still in $X$ when we know $Y$.
 
-\subsection*{Exercise}
-Given the joint distribution for $(X,Y)$:
+
+Lets do an example. Given the joint distribution for $(X,Y)$:
 \begin{center}
 \begin{tabular}{c|cc}
 &$x_0$&$x_1$\\
@@ -313,7 +314,143 @@ $y_0$&$1/4$&$1/4$\\
 $y_1$&$1/2$&$0$
 \end{tabular}
 \end{center}
-calculate $H(X,Y)$, $H(X|Y)$ and $H(Y|X)$.
+Calculating the joint entropy is easy:
+\begin{equation}
+H(X,Y)=-\frac{1}{2}\log_2{\frac{1}{4}}-\frac{1}{2}\log_2{\frac{1}{2}}=1.5
+\end{equation}
+We can also calculate the entropy of the marginal distribution: $p_X(x=x_0)=3/4$ and $p_X(x=x_1)=1/4$ so
+\begin{equation}
+H(X)=-\frac{3}{4}\log_2{\frac{3}{4}}-\frac{1}{4}\log_2{\frac{1}{4}}=0.81
+\end{equation}
+Now, to work out the conditional probability we need to work out the entropy conditioned on the two values of $y$; so $p_{X|Y}(x_0|Y=y_0)=p_{X|Y}(x_1|Y=y_0)=1/2$ so clearly
+\begin{equation}
+H(X|Y=y_0)=1
+\end{equation}
+On the other hand $p_{X|Y}(x_0|Y=y_1)=1$ but $p_{X|Y}(x_1|Y=y_1)=0$ so
+\begin{equation}
+H(X|y=y_1)=0
+\end{equation}
+and
+\begin{equation}
+H(X|Y)=\frac{1}{2}H(X|y=y_0)+\frac{1}{2}H(X|y=y_1)=0.5
+\end{equation}
+Thus, although it turns out $H(X|Y=y_0)>H(X)$
+\begin{equation}
+H(X|Y)<H(X)
+\end{equation}
+and we will see that in general $H(X|Y)\le H(X)$; this is as it should
+be, knowing about $Y$ can only reduce the amount of information in $X$
+on average.
+
+Finally, there is a chain rule for conditional entropy; recall
+\begin{equation}
+p_{X,Y}(x,y)=p_{X|Y}(x|y)p_Y{y}
+\end{equation}
+Now
+\begin{eqnarray}
+H(X,Y)&=&-\sum_{x,y} p_{X,Y}(x,y)\log_2{p_{X,Y}(x,y)}\cr
+&=&-\sum_{x,y} p_{X,Y}(x,y)\log_2{p_{X|Y}(x|y)p_Y(y)}\cr
+&=&-\sum_{x,y} p_{X|Y}(x|y)p_Y(y)\log_2{p_{X|Y}(x|y)}-\sum_y p_{Y}(y)\log_2{p_Y(y)}
+\end{eqnarray}
+or
+\begin{equation}
+H(X,Y)=H(X)+H(Y|X)
+\end{equation}
+This again makes sense; the amount of information in $X$ and $Y$ is
+the amount of information in $X$ plus the amount of information
+remaining in $Y$ if we already know $X$.
+
+\section*{Mutual information}
+
+The mutual information is a measure of how related two distributions are; it is given by
+\begin{equation}
+I(X,Y)=H(X)+H(Y)-H(X,Y)
+\end{equation}
+Thus, it is the amount of information in $X$ and $Y$ considered
+separately, minus the amount of information in them considered
+together. If the two distributions are independent, then $I(X,Y)=0$
+since $H(X,Y)=H(X)+H(Y)$: this follows from the chain rule, since
+$H(Y|X)=H(X)$ when $X$ and $Y$ are independent. Conversely, if $Y$ is
+determined by $X$ then $H(X|Y)=0$ and $H(X,Y)=H(X)$ and $I(X,Y)=H(Y)$.
+
+Combining the mutual information and the chain rule give two other expressions
+\begin{equation}
+I(X,Y)=H(X)-H(X|Y)
+\end{equation}
+and 
+\begin{equation}
+I(X,Y)=H(Y)-H(Y|X)
+\end{equation}
+Rewriting the entropies in terms of their definitions and fiddling
+around with sums and mass functions gives a more direct formula
+\begin{equation}
+I(X,Y)=\sum_{x,y}p_{X,Y}(x,y)\log_2\frac{p_{X,Y}(x,y)}{p_X(x)p_Y(y)}
+\end{equation}
+It can be proved that $I(X,Y)\ge 0$, with equality if and only if $X$
+and $Y$ are independent. A consequence of this, as mentioned above, is
+that $H(X)\ge H(X|Y)$.
+
+The mutual information is a powerful object; it determines the
+relatedness of random variables irrespective of how the variables are
+related. It is useful to compare it to the correlation; correlation is
+often used to measure how related to variables are:
+\begin{equation}
+\mbox{corr}(X,Y)=\frac{\langle (X-\mu_X)(Y-\mu_Y)\rangle}{\sigma_X\sigma_Y}
+\end{equation}
+where $\mu_X$ is the average of $X$ and $\sigma_X$ is its standard
+deviation. Now the correlation relies on the sample space being a
+vector space, as we discussed above; the mutual information makes no
+such assumption. Beyond this though, the correlation only measures a
+certain type of relation and does not completely characterize the
+nature of the dependence between them. As an extreme example, consider
+the random variables $X$ and $Y=X^2$ where $X$ is -1 or one with
+probability a quarter each, and zero with probability a half. Now 
+\begin{equation}
+\langle (X-\mu_X)(Y-\mu_Y)\rangle=\frac{1}{4}(-1)\frac{1}{2}+\frac{1}{4}\frac{1}{2}=0
+\end{equation}
+even though the variables are completely dependent. $I(X,Y)=0$. For
+real data, however, the mutual information can be difficult to
+estimate accurately.
+
+\section*{The data processing inequality}
+
+A Markov chain is a triplet of random variables $X$, $Y$ and $Z$
+where, roughly speaking $Z$ only learns about $X$ though $Z$; it isn't
+that $X$ and $Z$ are independent, just that if you know the value of
+$Y$ knowing the value of $X$ wouldn't tell you anything. A game of
+snakes and ladders is an example: your game position after three goes
+is $Z$ in this story, after two goes is $Y$ and after one is $X$. Now
+$Z$ depends on $X$, if you went up a ladder in your first go you are
+more likely have a high value at the end of your third go. But if you
+knew your game position after two goes, you wouldn't be any better at
+predicting your position after three goes if you knew where you were
+after one.
+
+More formally we write
+\begin{equation}
+X\rightarrow Y \rightarrow Z
+\end{equation}
+and say $X$, $Y$, $Z$ are a Markov chain if
+\begin{equation}
+p(x,z|y)=p(x|y)p(z|y)
+\end{equation}
+In other words, if you know $Y=y$ the conditional distributions of $X$
+and $Y$ are independent. The data processing inequality states that in this situation
+\begin{equation}
+I(X,Y)\ge I(X,Z)
+\end{equation}
+Thus $Z$ can't know any more about $X$ than $Y$ does. In a way, this
+is formulating the obvious: if the relationship between $Z$ and $X$
+\lq{}comes through\rq{} $Y$ then no amount of cunning processing
+allows you to make $Z$ more informative about $X$ than $Y$
+is. However, knowing this as a fact is useful and clarifies our
+thinking, it means we know, for example, that $V1$ of the visual
+cortex has no more information about what you are looking at than your
+thalamus does, because the visual information comes from the outside
+world to your retina, from their to the thalamus and hence on to the
+V1. Thus the purpose of the visual pathway can't be to add to our
+information about the world. Instead, it is to extract from the
+information coming from the retina that part that is useful.
 
 \bibliographystyle{apa}
 \bibliography{../../source/bibliography}{}
