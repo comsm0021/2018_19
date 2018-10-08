@@ -415,9 +415,9 @@ estimate accurately.
 \section*{The data processing inequality}
 
 A Markov chain is a triplet of random variables $X$, $Y$ and $Z$
-where, roughly speaking $Z$ only learns about $X$ though $Z$; it isn't
+where, roughly speaking $Z$ only learns about $X$ through $Y$; it isn't
 that $X$ and $Z$ are independent, just that if you know the value of
-$Y$ knowing the value of $X$ wouldn't tell you anything. A game of
+$Y$ knowing the value of $X$ wouldn't tell you anything more. A game of
 snakes and ladders is an example: your game position after three goes
 is $Z$ in this story, after two goes is $Y$ and after one is $X$. Now
 $Z$ depends on $X$, if you went up a ladder in your first go you are
@@ -435,7 +435,8 @@ and say $X$, $Y$, $Z$ are a Markov chain if
 p(x,z|y)=p(x|y)p(z|y)
 \end{equation}
 In other words, if you know $Y=y$ the conditional distributions of $X$
-and $Y$ are independent. The data processing inequality states that in this situation
+and $Y$ are independent. The data processing inequality states that in
+this situation
 \begin{equation}
 I(X,Y)\ge I(X,Z)
 \end{equation}
@@ -444,7 +445,7 @@ is formulating the obvious: if the relationship between $Z$ and $X$
 \lq{}comes through\rq{} $Y$ then no amount of cunning processing
 allows you to make $Z$ more informative about $X$ than $Y$
 is. However, knowing this as a fact is useful and clarifies our
-thinking, it means we know, for example, that $V1$ of the visual
+thinking, it means we know, for example, that V1 of the visual
 cortex has no more information about what you are looking at than your
 thalamus does, because the visual information comes from the outside
 world to your retina, from their to the thalamus and hence on to the
