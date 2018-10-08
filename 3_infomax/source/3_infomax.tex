@@ -1,0 +1,33 @@
+
+\subsection*{Infomax}
+
+The second topic we will consider is the Infomax algorithm. This is a
+approach to unmixing mixed data proposed in \cite{BellSejnowski1995}
+as giving an explanation for how the brain might perform auditory
+source separation. The problem is as follows: imagine you are in a
+crowded room, in the classic telling, at a cocktail party. Lots of
+people are talking, but if you concentrate on one voice you can
+separate it from the overall mixture. We can experience the opposite
+effect when meditating or sitting in thoughtful silence, for example,
+at a Quaker meeting: we suddenly notice how loud distance noises are,
+the noise of voices on the street, other people coughing and clearing
+their throats, the sound of wind through nearby trees. All these are
+sounds we automatically filter out when listening. This process of
+picking out individual sources of sound from a mixture of sounds is
+called auditory source separation, or, indeed, the cocktail party
+problem.
+
+The problem can be phrased like this, given the sources
+$\textbf{s}(t)$ where $\textbf{s}$ is a vector over multiple
+sources. Now we do source separation with only two recordings, one for
+each ear; here we are just going to consider the simpler problem of
+source separation when there are as many recordings are there are
+sources, we also assume the mixing is linear and instantaneous, real mixing of auditory signals in a room will only have these to problems approximately. However, given these assumption we have
+\begin{equation}
+\mathbf{r}(t)=M\mathbf{s}(t)+\mathbf{\epsilon}(t)
+\end{equation}
+with $M$ a square mixing matrix and $\mathbf{\epsilon}$ is some
+noise. The goal is to find the unknown source signals $\textbf{s}(t)$
+from the known recordings $\textbf{r}(t)$. This means finding the,
+also unknown, matrix $M$.
+
