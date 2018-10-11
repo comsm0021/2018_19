@@ -14,7 +14,7 @@
 
 The second topic we will consider is the Infomax algorithm. This is a
 approach to unmixing mixed data proposed in \cite{BellSejnowski1995}
-and gives an in principle explanation for how the brain might perform
+and gives an in-principle explanation for how the brain might perform
 auditory source separation. In other words, it shows how source
 separation might be performed and indicates some of the ingredients
 that may be present in source separation in the brain.
@@ -38,16 +38,16 @@ independent component analysis.
 
 As noted above, we are interested in the particularly neuronal
 approach described in \cite{BellSejnowski1995}; however this isn't the
-only approach to the problem and a different algorithm, fastICA, is
-the most popular \cite{Hyvarinen1999} algorithm.
+only approach to the problem and a different algorithm, fastICA
+\citep{Hyvarinen1999}, is the most popular algorithm for source separation.
 
 The problem can be phrased like this, given the sources
 $\textbf{s}(t)$ where $\textbf{s}$ is a vector over multiple
 sources. Now we do source separation with only two recordings, one for
 each ear; here we are just going to consider the simpler problem of
-source separation when there are as many recordings are there are
+source separation when there are as many recordings are as there are
 sources, we also assume the mixing is linear and instantaneous, real
-mixing of auditory signals in a room will only have these to problems
+mixing of auditory signals in a room will only have these properties
 approximately. However, given these assumption we have
 \begin{equation} \mathbf{r}(t)=M\mathbf{s}(t) \end{equation} with $M$
 a square mixing matrix. The goal is to find the unknown source signals
@@ -57,10 +57,8 @@ $\mathbf{s}$ and $\mathbf{r}$ are two-dimensional vectors and $M$ is a
 two-by-two matrix.
 
 We assume the two sources are independent,
-$p_{S_1,S_2}=p_{S_1}p_{S_2}$. Finally, we assume they are mixed
-linearly so that we record $r_1(t)$ and $r_2(t)$ with \begin{equation}
-{\bf r}(t)=M{\bf s}(t) \end{equation} where $M$ is a constant mixing
-matrix. Now, we want to find an unmixing matrix $W$ so that knowing
+$p_{S_1,S_2}=p_{S_1}p_{S_2}$; the point of source separation is to
+unmix independent sources. Now, we want to find an unmixing matrix $W$ so that knowing
 \begin{equation} {\bf x}(t)=W{\bf r}(t) \end{equation} is as good as
 knowing the sources; precisely, since ${\bf x}=WM{\bf s}$ we want $WM$
 to be a diagonal matrix multiplied by a permutation matrix, we do not
@@ -75,7 +73,7 @@ r}=M{\bf s}\stackrel{\mbox{unmixing}}{\longrightarrow}{\bf x}=W{\bf r}
 \end{equation}
 
 One difficulty with looking at this problem is that it involves
-continuous random variables, whereas the course so far has
+continuous random variables, whereas the unit so far has
 concentrated on the discrete case: $s_1(t)$ and $s_2(t)$ are continuous
 variable. For this reason some of the results will just be quoted and
 any exam questions will reflect the difficulty of this topic.
@@ -83,17 +81,17 @@ any exam questions will reflect the difficulty of this topic.
 The main point with continuous random variables is that the
 probability distribution is now a density, so 
 \begin{equation}
-Pr(a<x<b)=\int_a^b dx p_X(x) 
+Pr(a<x<b)=\int_a^b p_X(x) dx 
 \end{equation} 
 with 
 \begin{equation}
-\int_{-\infty}^{\infty} dx p_X(x)=1 
+\int_{-\infty}^{\infty} p_X(x)=1 dx
 \end{equation} 
 An important difference is demonstrated by the following formula: if
 $Y=g(X)$ are two random variables related by an invertible function
 $g$ 
 \begin{equation} 
-p_Y(y)=\frac{p_X(x=g^{-1}(y))}{|g'(x)|}
+p_Y(\lambda x)=\frac{p_X(x=g^{-1}(y))}{|g'(x)|}
 \end{equation} 
 To see roughly where this comes from, consider a simple scaling
 $Y=\lambda X$, now, to preserve the probabilities
@@ -111,10 +109,10 @@ p_Y(y)=\frac{p_x(x)}{\lambda}
 
 The information is defined in the same way as before
 \begin{equation} 
-H(X)=-\int dx p(x)\log{p(x)} 
+H(X)=-\int  p(x)\log{p(x)} dx 
 \end{equation} 
 but it is no longer always positive. Furthermore, by substituting from
-the formula above, you can see, (C\&T Theorem 8.6.4), that
+the formula above, you can see that
 \begin{equation} 
 H(\lambda X)=H(X)+\log{|\lambda|} 
 \end{equation} 
@@ -131,7 +129,7 @@ C(X_1,X_2)=\langle(X_1-\langle X_1\rangle)(X_2-\langle X_2\rangle)\rangle_{(X_1,
 \end{equation}
 where the expectation value for continuous random variables has the obvious definition
 \begin{equation}
-\langle g(X)\rangle =\int dx p_X(x)g(x)
+\langle g(X)\rangle =\int p_X(x)g(x) dx
 \end{equation}
 It is easy to check that the correlation vanishes if $X_1$ and $X_2$
 are independent, however, the flaw in this approach is that the
@@ -223,7 +221,7 @@ feature of the algorithm, ultimately we need to calculate derivatives
 and these are calculable and well defined, even if the quantity being
 differentiated is not. In this case
 \begin{equation}
-H(Y)=-\int dy p(y)\log{p(y)}
+H(Y)=-\int p(y)\log{p(y)} dy
 \end{equation}
 and this is estimated by
 \begin{equation}
