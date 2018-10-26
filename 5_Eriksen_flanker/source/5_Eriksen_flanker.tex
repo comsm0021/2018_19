@@ -157,15 +157,19 @@ priors are $p(M=C)=\beta$, representing our expectation of consistency
 and $P(s_2=\mathbf{H})=0.5$ since we have no reason to expect one over
 the other. Now
 \begin{equation}
-p(\mathbf{H},C|\textbf{x}(t=1),\mbox{at the start})=\frac{0.5\beta p(\textbf{x}|\mathbf{H},C)}{Z}
+p(\mathbf{H},C|\textbf{x}(1),\mbox{at the start})=\frac{0.5\beta p(\textbf{x}|\mathbf{H},C)}{Z}
 \end{equation}
 This gives us a posterior for time $t=1$. We would need to do the same
-thing for $P(s_2=\mathbf{H},M=I|\textbf{x}(t=1),\mbox{at the start})$
-to calculate $P(s_2=\mathbf{H}|\textbf{x}(t=1),\mbox{at the
-  start})$. If that is greater than 0.9, or less than 0.1, we stop and
+thing for $P(s_2=\mathbf{H},M=I|\textbf{x}(1),\mbox{at the start})$
+to calculate 
+\begin{equation}
+P(s_2=\mathbf{H}|\textbf{x}(1),\mbox{at the
+  start})
+\end{equation}
+If that is greater than 0.9, or less than 0.1, we stop and
 declare an answer. Otherwise we iterate:
 \begin{equation}
-p(\mathbf{H},C|\textbf{x}(t=2),\mbox{$t=0$ and $t=1$})=\frac{p(\textbf{x}|\mathbf{H},C)p(\mathbf{H},C|\textbf{x}(t=1),t=0)}{Z}
+p(\mathbf{H},C|\textbf{x}(2),\textbf{x}(1),\mbox{at the start})=\frac{p(\textbf{x}|\mathbf{H},C)p(\mathbf{H},C|\textbf{x}(1),\mbox{at the start})}{Z}
 \end{equation}
 Clearly, although this hasn't been fleshed out in detail, it shows how
 we could build a model to calculate the reaction time distribution and
@@ -188,7 +192,7 @@ In \cite{YuDayanCohen2009} this is simulated for the two hypotheses. The results
 \begin{center}
   \includegraphics[width=4.5cm]{flanker_model2.png}
 \end{center}
-\caption{This shows the model results for the second hypothesis. Taken from \cite{YuDayanCohen2009}. \label{fig_h1}}
+\caption{This shows the model results for the second hypothesis. Taken from \cite{YuDayanCohen2009}. \label{fig_h2}}
 \end{figure}
 
 
