@@ -253,16 +253,24 @@ and we ignore the normalizing factor $p(v,h)$ since it is independent of $x$, th
 \begin{equation}
 p(x|v,h)\propto p(v|x)p(h|x)
 \end{equation}
-Multiplying all this out, or using the formula for multiplying
-Gaussians, this means that $p(x|v,h)$ is given by
-$\mathcal{N}(\bar{x},\sigma)$ with
+
+Now if we multiply out the two Gaussians the exponent is
+\begin{equation}
+-\frac{(h-x)^2}{2\sigma_h^2}-\frac{(v-x)^2}{2\sigma_v^2}=-\left(\frac{1}{2\sigma_h^2}+\frac{1}{2\sigma_v^2}\right)x^2+\left(\frac{h}{\sigma_h^2}+\frac{v}{\sigma_v^2}\right)x+\mbox{other stuff}
+\end{equation}
+so if we define $\sigma$ by
 \begin{equation}
 \frac{1}{\sigma^2}=\frac{1}{\sigma_v^2}+\frac{1}{\sigma_h^2}
 \end{equation}
-and 
+and $\bar{x}$ by
 \begin{equation}
-\bar{x}=\frac{\sigma_v^2}{\sigma^2}v+\frac{\sigma_h^2}{\sigma^2}h
+\bar{x}=\frac{\sigma^2}{\sigma_v^2}v+\frac{\sigma^2}{\sigma_h^2}h
 \end{equation}
+this gives
+\begin{equation}
+-\frac{(h-x)^2}{2\sigma_h^2}-\frac{(v-x)^2}{2\sigma_v^2}=-\frac{(x-\bar{x})^2}{2\sigma^2}+\mbox{other stuff}
+\end{equation}
+
 In other words, the optimal guess for $x$ is the variance weighted
 measurements of $v$ and $h$; the factors $\sigma^2/\sigma_v^2$ and
 $\sigma^2/\sigma_h^2$ quantify how much the variability of $v$ and $h$
@@ -271,7 +279,7 @@ contribute, the lower the weighting is given to the measurement. This
 is summarized by writing $\lambda_v=\sigma^2/\sigma_v^2$ and
 $\lambda_h=\sigma^2/\sigma_h^2$, so
 \begin{equation}
-\lambda_v+\lambda_h=1
+\lambda_v+\lambda_h=\frac{\sigma^2}{\sigma_v^2}+\frac{\sigma^2}{\sigma_h^2}=\frac{1}{1/\sigma_v^2+1/\sigma_h^2}\left(\frac{1}{\sigma_v^2}+\frac{1}{\sigma_h^2}\right)=1
 \end{equation}
 so $\lambda_v$ and $\lambda_h$ are the visual and haptic weights.
 
@@ -279,11 +287,17 @@ In the actual experiment the visual noise is changed, allowing the
 experimenters to manipulate the two weights. They then do multiple
 experiments where they ask the subjects to decide which of two blocks
 is larger and manage through a regression analysis to decide how the
-subjects are weighting the two pieces of evidence; for details see the
-paper. They then compare the measured weightings to those estimated by
-the optimal Bayesian model. The result is shown in
-Fig.~\ref{fig_weights} and demonstrate Bayesian optimal perception in
-this aspect of human sensory fusion.
+subjects are weighting the two pieces of evidence. In other words it is assumed that the subjects are combining the haptic and visual estimates
+\begin{equation}
+\xi=\mu_v v+\mu_h h
+\end{equation}
+where $\xi$ is the subjects estimate of $x$ and $\mu_v$ and $\mu_h$
+are some weighting factors to be estimated from the behavioural data
+by regression; for details see the paper. They then compare the
+measured weightings, $\mu_v$ and $\mu_h$, to those estimated by the
+optimal Bayesian model, that is $\lambda_v$ and $\lambda_h$. The
+result is shown in Fig.~\ref{fig_weights} and demonstrate Bayesian
+optimal perception in this aspect of human sensory fusion.
 
 
 \begin{figure}[htb]
