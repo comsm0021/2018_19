@@ -13,15 +13,20 @@
 \section*{Sensory processing: the Eriksen flanker task}
 
 In this section we will talk about another experiment providing
-evidence for Bayesian inference in the brain. In this case we will
-start off examine our ability to pick out an individual in a crowd\footnote{A still from Hitchcock's film \textsl{Strangers on a Train}.}
+evidence for Bayesian inference in the brain. It will look at the
+effect of distractors on perception. This is part of an interesting
+and diverse field of research that examines pop-out, our ability, for
+example, to pick out an individual in a crowd\footnote{A still from
+  Hitchcock's film \textsl{Strangers on a Train}.}
 \begin{center}
 \includegraphics[width=7.5cm]{Strangers_on_a_Train.png}
 \end{center}
-though in the end we appear to observe something else. In any case we
+Here, though, we observe something else; a certain sort of confusion
+when a target stimulus is surrounded by distractors. In any case we
 begin by thinking about the selective attention and monitoring of
-contrast and similarity in visual input. In the task, originally described in \citet{EriksenEriksen1974}, the participants
-are shown one of two stimuli, here a \lq{}\textbf{S}\rq{} or a
+contrast and similarity in visual input. In the task, originally
+described in \citet{EriksenEriksen1974}, the participants are shown
+one of two stimuli, here a \lq{}\textbf{S}\rq{} or a
 \lq{}\textbf{H}\rq{} and they press a button in reponse, for example
 left for \textbf{S} and right for \textbf{H}. The target letter is
 flanked by distractors on each side the participants are told to
@@ -33,23 +38,30 @@ Participants are slower and less accurate when responding to
 incompatible flankers. This is studied from a Bayesian point of view
 in \cite{YuDayanCohen2009}; they use data from older experiments in
 which the participants were instructed to perform the task as quickly
-as possible. One surprising result, see Fig.~\ref{fig_rt_accurate}, is
-that for very short reaction times the response with incompatible
-flankers can be worse than chance.
+as possible. One surprising and distinctive result, see
+Fig.~\ref{fig_rt_accurate}, is that for very short reaction times the
+response with incompatible flankers can be worse than chance. The goal
+here is to understand both the error rate and the distribution of
+reaction times.
 
 \begin{figure}[tb]
 \begin{center}
   \includegraphics[width=9.5cm]{fig_rt_accurate.png}
 \end{center}
-\caption{The solid lines show the accuracy against reaction
-  time; the dashed lines the distribution of reaction times themselves. There are two traces, one marked C with compatible flankers, this is graphed with triangles and one marked I with incompatible flankers. The figure was taken (by Rosalyn) from \cite{YuDayanCohen2009} but they themselves have adopted it from other studies. \label{fig_rt_accurate}}
+\caption{The solid lines show the accuracy against reaction time; the
+  dashed lines the distribution of reaction times themselves. There
+  are two traces, one marked C with compatible flankers, this is
+  graphed with triangles and one marked I with incompatible
+  flankers. The figure was taken (by Rosalyn) from
+  \cite{YuDayanCohen2009} but they themselves have adopted it from
+  other studies. \label{fig_rt_accurate}}
 \end{figure}
 
 There are two hypothesis as to what is going on, the first is that
 there is a compatibility bias: the brain assumes that the world is
 smooth, so having \textbf{S} flankers biases it towards the
 expectation that middle letter is also a \textbf{S}. This makes sense,
-visual information often has a high regularity. 
+visual information often has a high regularity.
 
 The second hypothesis argues that the areas of the brain that perform
 high level recognition assess visual stimuli over a large receptive
@@ -69,8 +81,8 @@ Bayesian infernce.
 
 Let the stimuli be labels $s_1$, $s_2$ and $s_3$, $s_2$ is the target,
 $s_1$ are the letter to the left and $s_3$ to the right. In the
-experiment $s_1=s_3$, in the compatible condition $s_1=s_2$, in the
-incompatible $s_1\not=s_2$. The three neurons corresponding to three
+experiment $s_1=s_3$, in the consistient condition $s_1=s_2$, in the
+inconsistient $s_1\not=s_2$. The three neurons corresponding to three
 stimuli are labelled $x_1$, $x_2$ and $x_3$; these will have a
 response which is different, on average, depending on which letter is
 in each part of the stimulus, but they will respond in a variable
@@ -82,9 +94,9 @@ than one $s_i$. The random variable $M$ describes the trial condition,
 with $M=I$ for incompatible and $M=C$ for compatible. If we write
 $p(M=C)=\beta$ then for hypothesis one $\beta>0.5$.
 
-If $\mu_i=\mu(s_i)$ represented the -1 or one at the $i$ subinterval
-letter position corresponding to \textbf{S} and \textbf{H} we can
-assume a distribution for the response, for hypothesis one this could be
+If $\mu_i=\mu(s_i)$ represented the -1 or one at the $i$ letter
+position corresponding to \textbf{S} and \textbf{H} we can assume a
+distribution for the response, for hypothesis one this could be
 \begin{equation}
 p(\textbf{x}|\textbf{s})=\mathcal{N}(\mu_1,\sigma)\mathcal{N}(\mu_2,\sigma)\mathcal{N}(\mu_3,\sigma)
 \end{equation}
@@ -100,15 +112,23 @@ draw repeatedly from their distribution, independently each time, so, for exampl
 \begin{equation}
 p(\textbf{x}(t)|\textbf{s})=\mathcal{N}(\mu_1,\sigma)\mathcal{N}(\mu_2,\sigma)\mathcal{N}(\mu_3,\sigma)
 \end{equation}
-for all $t$. We will also treat $t$ as a discrete variable.
+for all $t$. We will also treat $t$ as a discrete variable, so in this
+picture the visual percept is observed for a short amount of time, say
+tens of miliseconds; the neurons response to this observation and then
+the cycle repeats. In reality, of course, this is a continuous
+process.
 
 Now we consider the recognition model. This assumes an \textsl{ideal
   behaviour}, that is inference based on an optimal Bayesian
-strategy. Lets imagine that the target is \textbf{H} and we are
-interested in estimating $s_2$. Ultimately to calculated the
-probability that $s_2=\mathbf{H}$ we will need to marginalize over the
-condition $M$; but for now lets calculate
-$p(s_2=\mathbf{H},M=C|\textbf{x}(t))$.  Using the Bayes rule we have
+strategy. In other words, given the noise in the system, the noisy
+response of the neurons, the noise in the eye, the ideal observer
+makes the best possible decision.
+
+Lets imagine that the target is \textbf{H} and we are interested in
+estimating $s_2$. Ultimately to calculated the probability that
+$s_2=\mathbf{H}$ we will need to marginalize over the condition $M$;
+but for now lets calculate $p(s_2=\mathbf{H},M=C|\textbf{x}(t))$.
+Using the Bayes rule we have
 \begin{equation}
 p(\mathbf{H},C|\textbf{x}(t),\mbox{previous $t$})=\frac{p(\textbf{x}|\mathbf{H},C)P(\mathbf{H},C|\mbox{previous $t$})}{Z}
 \end{equation}
@@ -131,7 +151,11 @@ Now at the start the prior is not based on any evidence
 P(\mathbf{H},C|\mbox{at the start})=0.5\beta
 \end{equation}
 since at this time the condition, consistent or inconsistent, is
-independent of the identity of the target, \textbf{H} or \textbf{S}. We also have values for these quantities, we assume our priors are $p(M=C)=\beta$, representing our expectation of consistency and $P(s_2=\mathbf{H})=0.5$ since we have no reason to expect one over the other. Now
+independent of the identity of the target, \textbf{H} or
+\textbf{S}. We also have values for these quantities, we assume our
+priors are $p(M=C)=\beta$, representing our expectation of consistency
+and $P(s_2=\mathbf{H})=0.5$ since we have no reason to expect one over
+the other. Now
 \begin{equation}
 p(\mathbf{H},C|\textbf{x}(t=1),\mbox{at the start})=\frac{0.5\beta p(\textbf{x}|\mathbf{H},C)}{Z}
 \end{equation}
