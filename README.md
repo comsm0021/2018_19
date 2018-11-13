@@ -9,15 +9,16 @@ It is jointly taught by Conor Houghton, Rui Ponte Costa and Cian O'Donnell at th
 This field is highlight interdisciplinary, as such there is no single textbook that covers all our lectures. However, below we highlight with ** the most relevant ones for this unit.
 
 ##### Theoretical neuroscience:
-1. \** *Theoretical Neuroscience* by P Dayan and L F Abbott (MIT Press 2001), see also the list of errata.<br>
+1. \** *Theoretical Neuroscience* by P Dayan and L F Abbott (MIT Press 2001), see also errata.<br>
 2. *Neuronal Dynamics* by Wulfram Gerstner, Werner M. Kistler, Richard Naud and Liam Paninski. Full version online. <br>
 3. *Introduction To The Theory Of Neural Computation*, Volume I by John Hertz. (Classical and accessible book on neural computation)<br>
+4. *Bayesian Brain: Probabilistic Approaches to Neural Coding*
 
 ##### Machine/statistical Learning:
-4. \** General ML book: *Information Theory, Inference and Learning Algorithms* by David MacKay<br>
+4. \** General ML book: *Information Theory, Inference and Learning Algorithms* by David MacKay. [Full version available online](http://www.inference.org.uk/itila/book.html)<br>
 5. \** Deep Learning (including Recurrent neural nets): *Deep Learning* by Ian Goodfellow, Yoshua Bengio and Aaron Courville<br>
-6. Unsupervised learning: *Natural Image Statistics* by Aapo Hyvarinen, Jarmo Hurri, and Patrik O. Hoyer. Full version online.<br>
-7. Reinforcement learning: *Reinforcement Learning: An Introduction* by Richard S. Sutton and Andrew G. Barto. Full version online.<br><br>
+6. Unsupervised learning: *Natural Image Statistics* by Aapo Hyvarinen, Jarmo Hurri, and Patrik O. Hoyer. [Full version available online](http://www.naturalimagestatistics.net).<br>
+7. Reinforcement learning: *Reinforcement Learning: An Introduction* by Richard S. Sutton and Andrew G. Barto. [Full version available online](http://incompleteideas.net/book/the-book-2nd.html).<br><br>
 <!---  ---> 
 ##### \** Super useful math/stat cheat-sheet by Iain Murray:<br> https://homepages.inf.ed.ac.uk/imurray2/pub/cribsheet.pdf
 
@@ -26,8 +27,8 @@ Lecturer 2-3, Information theory: 1,4 (and lecturer notes)<br>
 Lecturer 4-5, Statistical theory: 1,4 (and lecturer notes)<br>
 Lecturer 6-7, Probabilistic brain: 1,4 (and lecturer notes)<br>
 Lecturer 8-9, Guest lectures<br>
-Lecturer 10, Learning in the brain: 1,?<br>
-Lecturer 11-12, Visual System: conv nets, etc. 5,6<br>
-Lecturer 13-14: Auditory cortex: Recurrent neural networks<br>
-Lecturer 15-16: Reinforcement Learning: TD-learning, Q-Learning, Deep RL<br>
+Lecturer 10, Learning in the brain: 1,4<br>
+Lecturer 11-12, Visual System: conv nets et al.: 5,6<br>
+Lecturer 13-14: Auditory cortex: Recurrent neural networks: 1,4 <br>
+Lecturer 15-16: Reinforcement Learning: TD-learning, Q-Learning, Deep RL: 1,7<br>
 Lecturer 17-20: Neural Data Analysis<br>
