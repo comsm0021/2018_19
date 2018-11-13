@@ -49,7 +49,10 @@ less and then descreases slowly for longer movements.
 \begin{center}
   \includegraphics[width=6cm]{manipulandum.jpg}
 \end{center}
-\caption{A manipulandum allows hand movements to be recorded and to be manipulated by applying a force. [Image from \cite{MistryEt2013}, the start and target labels don't apply to the experiment being discussed here].\label{fig_manipulandum}}
+\caption{A manipulandum allows hand movements to be recorded and to be
+  manipulated by applying a force. [Image from \cite{MistryEt2013},
+    the start and target labels don't apply to the experiment being
+    discussed here].\label{fig_manipulandum}}
 \end{figure}
 
 
@@ -60,7 +63,10 @@ less and then descreases slowly for longer movements.
 \caption{The bias in estimates of hand position; \textbf{B} shows the
   mean bias and \textbf{C} the mean variance. The middle line shows
   the mean and the two outer lines are standard errors indicating the
-  variability of the measurement. The participants never stop moving their hands in less than 0.5 seconds so the graphs start there; after 2.5 second the bias stops changing; 1 second corresponds to 0.9 cm and 2.5 seconds to 2 cm. [Image from
+  variability of the measurement. The participants never stop moving
+  their hands in less than 0.5 seconds so the graphs start there;
+  after 2.5 second the bias stops changing; 1 second corresponds to
+  0.9 cm and 2.5 seconds to 2 cm. [Image from
     \cite{WolpertEtAl1995}].\label{fig_manipulandum}}
 \end{figure}
 
@@ -97,13 +103,30 @@ prediction based on dead reckoning of where the hand is. One detail is
 important, the covariance of $\mathbf{W}$ grows with time, if $W$ is
 the covariance matrix then $W=wt$ for some $w$.
 
-Overall the model has a prediction from the forward model and sensory information from proprioception; these are combined to give a new estimate of the position $\mathbf{x}_n$
+Overall the model has a prediction from the forward model and sensory
+information from proprioception; these are combined to give a new
+estimate of the position $\mathbf{x}_n$
 \begin{equation}
 \mathbf{x}_n=\textbf{x}_d+K(\textbf{x}_s-\textbf{x}_d)
 \end{equation}
 where $\mathbf{x}_s$ is the sensory estimate of the position and $K$
 is the Kalman gain.\footnote{All this is described in position space,
-  as if in the brain the sensory information is converted into position information; a more likely picture is that the forward model outputs a sensory prediction. However, this doesn't change the picture being presented here.}
+  as if in the brain the sensory information is converted into
+  position information; a more likely picture is that the forward
+  model outputs a sensory prediction. However, this doesn't change the
+  picture being presented here.}
+
+In this picture of motor control the movement of the hand is under
+continouous feedback control; as the hand is moving the forward model
+is predicting where the hand will soon be so the motor areas can issue
+instructions for what the muscles must do next to move from that point
+to the one beyond. This continuous feedback is a more adaptible and
+robust model of motor control than one involving a backward model; in
+a backward model the desired final location of the hand is the input
+and the output is the required motor commands. 
+
+
+
 
 \bibliographystyle{apa} \bibliography{../../source/bibliography}{}
 
