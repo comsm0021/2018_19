@@ -26,23 +26,23 @@ excert a force against or with the movement of your hand. A
 manipulandum is shown in Fig.~\ref{fig_manipulandum}.
 
 In this experiment the manipulandum is restricted to horizonal
-motion. At the start of each trial the subjects hand is illuminated so
-that the subject knows where their hand is. The subject is then asked
-to move their hand; there may be a force assisting or resisting this
-movement, in any case at the end a restiance force is used to force
-the subject to stop moving there hand at a point uniformly chosen
-between zero and 30 cm.  The subject is then asked to use their other
-hand to indicate, using a mouse which moves a marker along the
-horizonal track, where they believe where their hand is. It turns our
-people consistiently over-estimate how far their hand has
-travelled.\footnote{This raises a plethora of questions; like if they
-  then get visual feedback does the estimate improve? Is the
-  overestimate the result of not modelling the braking force? This
-  isn't dealt with in the paper and may work against its conclusions!}
-In fact this overestimate has a distinctive timecourse shown in
-Fig.~\ref{fig_overestimate}: the overestimate increases rapidly for
-movements that take a second or less and then descreases slowly for
-longer movements.
+motion. At the start of each trial the location of the subjects hand
+is illuminated and it is assumed that at that time the subject knows
+exactly where their hand is. The subject is then asked to move their
+hand; there may be a force assisting or resisting this movement, in
+any case at the end a restiance force is used to force the subject to
+stop moving there hand at a point uniformly chosen between zero and 30
+cm.  The subject is then asked to use their other hand to indicate,
+using a mouse which moves a marker along the horizonal track, where
+they believe where their hand is. It turns our people consistiently
+over-estimate how far their hand has travelled.\footnote{This raises a
+  plethora of questions; like if they then get visual feedback does
+  the estimate improve? Is the overestimate the result of not
+  modelling the braking force? This isn't dealt with in the paper and
+  may work against its conclusions!}  In fact this overestimate has a
+distinctive timecourse shown in Fig.~\ref{fig_overestimate}: the
+overestimate increases rapidly for movements that take a second or
+less and then descreases slowly for longer movements.
 
 
 \begin{figure}{htb}
@@ -76,19 +76,34 @@ the Kalman filter:
 \end{equation}
 where, as before 
 \begin{equation}
-F=\left(\begin{array}1&t\\0&1\end{array}\right)
+F=\left(\begin{array}{cc}1&t\\0&1\end{array}\right)
 \end{equation}
 but here there is in addition a control vector corresponding to the
 force the subject applies to the manipulandum. 
 \begin{equation}
-\textbf{c}=\left(\begin{array} 0\\1/m\end{array}\right)
+\textbf{c}=\left(\begin{array}{c} 0\\1/m\end{array}\right)
 \end{equation}
 and $U(t)$ is the work done on the manipulandum, so $U(t)=\int_0^t
 u(t)dt$ where $u(t)$ is the force on the manipulandum, both from the
 subject and, possibiliy, from the added force applied to the
 manipulandum during the experiment. Finally $\textbf{W}$ is the
 noise. Basically, the difference from what we saw before is the extra
-control term modelling the accelleration of the manipulandum. This force 
+control term modelling the accelleration of the manipulandum. In this
+picture this force is something the brain knows about, they are the
+motor commands whose effect is begin modelled. In any case, the
+details here are not important, the main thing is that in this model
+the brain models the consequence of the motor commands and produces a
+prediction based on dead reckoning of where the hand is. One detail is
+important, the covariance of $\mathbf{W}$ grows with time, if $W$ is
+the covariance matrix then $W=wt$ for some $w$.
+
+Overall the model has a prediction from the forward model and sensory information from proprioception; these are combined to give a new estimate of the position $\mathbf{x}_n$
+\begin{equation}
+\mathbf{x}_n=\textbf{x}_d+K(\textbf{x}_s-\textbf{x}_d)
+\end{equation}
+where $\mathbf{x}_s$ is the sensory estimate of the position and $K$
+is the Kalman gain.\footnote{All this is described in position space,
+  as if in the brain the sensory information is converted into position information; a more likely picture is that the forward model outputs a sensory prediction. However, this doesn't change the picture being presented here.}
 
 \bibliographystyle{apa} \bibliography{../../source/bibliography}{}
 
