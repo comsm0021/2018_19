@@ -68,8 +68,27 @@ It is proposed in \cite{WolpertEtAl1995} that this is evidence for a
 forward model. In there description the sense of hand position in the
 absence of visual feedback has two components, a dead reckoning
 component supplied by the forward model and a proprioceptive component
-coming from mechano-receptors in the arm itself.
-
+coming from mechano-receptors and joint receptors in the arm
+itself. The dead reckoning model is similar to what we saw before for
+the Kalman filter:
+\begin{equation}
+\mathbf{x}_d=F\textbf{x}+U(t)\textbf{c}+\textbf{W}
+\end{equation}
+where, as before 
+\begin{equation}
+F=\left(\begin{array}1&t\\0&1\end{array}\right)
+\end{equation}
+but here there is in addition a control vector corresponding to the
+force the subject applies to the manipulandum. 
+\begin{equation}
+\textbf{c}=\left(\begin{array} 0\\1/m\end{array}\right)
+\end{equation}
+and $U(t)$ is the work done on the manipulandum, so $U(t)=\int_0^t
+u(t)dt$ where $u(t)$ is the force on the manipulandum, both from the
+subject and, possibiliy, from the added force applied to the
+manipulandum during the experiment. Finally $\textbf{W}$ is the
+noise. Basically, the difference from what we saw before is the extra
+control term modelling the accelleration of the manipulandum. This force 
 
 \bibliographystyle{apa} \bibliography{../../source/bibliography}{}
 
