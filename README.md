@@ -30,4 +30,4 @@ Lecturer 10, Learning in the brain: 1,?<br>
 Lecturer 11-12, Visual System: conv nets, etc. 5,6<br>
 Lecturer 13-14: Auditory cortex: Recurrent neural networks<br>
 Lecturer 15-16: Reinforcement Learning: TD-learning, Q-Learning, Deep RL<br>
-...
+Lecturer 17-20: Neural Data Analysis<br>
