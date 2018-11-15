@@ -66,7 +66,9 @@ less and then descreases slowly for longer movements.
   variability of the measurement. The participants never stop moving
   their hands in less than 0.5 seconds so the graphs start there;
   after 2.5 second the bias stops changing; 1 second corresponds to
-  0.9 cm and 2.5 seconds to 2 cm. [Image from
+  0.9 cm and 2.5 seconds to 2 cm. It should be noted that this is only
+  a small fraction of the trials, the trials themselves are uniformly
+  chosen from between zero and 30cm, we are told the result plateaus after 2.5 seconds. [Image from
     \cite{WolpertEtAl1995}].\label{fig_manipulandum}}
 \end{figure}
 
@@ -137,11 +139,48 @@ of, in this case, the hand's location, it uses it to improve sensory
 perception of the environment and it uses it to correct the forward
 model itself. How it balances these different aspects based on how
 often an error occurs and the information, encoded in neuromodulation,
-of which is likely to be appropriate, is an interesting and open
-question.
+of which is likely to be appropriate, is an interesting open question.
 
 
+\begin{figure}{htb}
+\begin{center}
+  \includegraphics[width=5cm]{fig_overestimate.png}
+\end{center}
+\caption{The model bias in estimates of hand position; \textbf{B}
+  shows the mean bias and \textbf{C} the mean variance. These show
+  some similarity to the experimental results; it is clear though that
+  the Kalman model doesn't show a plateau as with the experimental
+  result unless it is assumed the sensory result, like the dead
+  reckoning result, has a bias, just a smaller one and one that
+  doesn't grow with movement. [Image from
+    \cite{WolpertEtAl1995}].\label{fig_manipulandum}}
+\end{figure}
 
+
+Lets return to the experiment. In a Kalman filter the size of the
+Kalman gain depends on the variance in the two estimates. If the
+variance in the dead reckoning estimate is low compared to the
+variance in the sensory estimate then the Kalman gain is near zero;
+conversely if the dead reckoning variance is large compared to the
+sensory variance the gain is near one. In the authors' account of
+their experimental result they imagine that because of the conditions
+of the experiment the dead reckoning estimate has a positive bias
+which increases with movement.\footnote{There is no explanation as to
+  why this might be; this is a weakness of the analysis.} The effect
+of this bias is seen in the overestimate. However, the Kalman gain
+increases over time; the variance in the dead reckoning estimate
+starts at zero and increases, again getting larger and larger with
+movement, and so the estimate of the position becomes more and more
+reliant on the sensory estimate as time passes, so the bias
+reduces. In fact the result of the Kalman filtering model is seen in
+Fig.~\ref{fig_model} and gives a good qualitative agreement with
+experiment. The key point is that the bias stops in increasing because
+the Kalman gain orchestrates a switch from the dead reckoning estimate
+to the sensory estimate.
+
+\subsection*{The cerebellum}
+
+This leaves open the question
 
 \bibliographystyle{apa} \bibliography{../../source/bibliography}{}
 
