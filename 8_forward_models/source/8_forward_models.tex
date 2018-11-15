@@ -117,13 +117,28 @@ is the Kalman gain.\footnote{All this is described in position space,
   picture being presented here.}
 
 In this picture of motor control the movement of the hand is under
-continouous feedback control; as the hand is moving the forward model
+continuous feedback control; as the hand is moving the forward model
 is predicting where the hand will soon be so the motor areas can issue
 instructions for what the muscles must do next to move from that point
-to the one beyond. This continuous feedback is a more adaptible and
+to the one beyond. This continuous feedback is a more adaptable and
 robust model of motor control than one involving a backward model; in
 a backward model the desired final location of the hand is the input
 and the output is the required motor commands. 
+
+An additional advantage of a forward model is that it can help with
+sensory perception; if there is a prediction of how the sensory
+consequence of a model command then this can be used to separate the
+expected sensation from the unexpected. Some aspect of the unexpected
+sensation will, of course, be attributable to errors in the forward
+model, but some will be related to the environment. In fact, there is
+a complicated story here, the brain uses differences between the
+forward model and the sensory perception to correct its understanding
+of, in this case, the hand's location, it uses it to improve sensory
+perception of the environment and it uses it to correct the forward
+model itself. How it balances these different aspects based on how
+often an error occurs and the information, encoded in neuromodulation,
+of which is likely to be appropriate, is an interesting and open
+question.
 
 
 
