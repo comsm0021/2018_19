@@ -28,7 +28,7 @@ Lecturer 2-3, Information theory: 1,4 (and lecturer notes)<br>
 Lecturer 4-5, Statistical theory: 1,4 (and lecturer notes)<br>
 Lecturer 6,7,9, Probabilistic brain: 1,4 (and lecturer notes)<br>
 <br>
-Lecturer 8, Guest lectures<br>
+Lecturer 8, Guest lecture<br>
 <br>
 Rui:<br>
 Lecturer 10, Learning in the brain: 1,4<br>
