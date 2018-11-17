@@ -25,8 +25,8 @@ This field is highlight interdisciplinary, as such there is no single textbook t
 #### Recommended reading by lectures:
 Conor:<br>
 Lecturer 2-3: Information theory (1,4 and lecturer notes)<br>
-Lecturer 4-5: Statistical theory (1,4 lecturer notes)<br>
-Lecturer 6-7,9: Probabilistic brain (1,4 lecturer notes)<br>
+Lecturer 4-5: Statistical theory (1,4 and lecturer notes)<br>
+Lecturer 6-7,9: Probabilistic brain (1,4 and lecturer notes)<br>
 <br>
 Lecturer 8: Guest lecture<br>
 <br>
