@@ -32,9 +32,11 @@ Lecturer 8: Guest lecture<br>
 <br>
 Rui:<br>
 Lecturer 10: Learning in the brain (1,4)<br>
-Lecturer 11-12: Visual System: conv nets et al. (5,6)<br>
-Lecturer 13-14: Auditory cortex: Recurrent neural networks (1,4) <br>
-Lecturer 15-16: Reinforcement Learning: TD-learning, Q-Learning, Deep RL (1,7)<br>
+Lecturer 11-12: Visual System: conv nets and backprop (5,6)<br>
+Lecturer 13: Sparse coding and autoencoders (5,6)<br>
+Lecturer 14: Reinforcement Learning: TD-learning, Q-Learning, Deep RL (1,7)<br>
+Lecturer 15-16: Auditory cortex, Recurrent neural networks, gated RNNs (1,4) <br>
+
 <br>
 Cian:<br>
 Lecturer 17-20: Neural Data Analysis<br>
