@@ -112,14 +112,15 @@ though obviously you will want the same number on each side.
 
 \subsubsection*{Solution}
 
-So given that one of $n$ coins is counterfeit; there are $2n$
-possible configurations, numbering the coins one to $n$, each
-possibility is either of the form the $i$th coin is heavier, or the
-$i$th coin is lighter. Thus, assuming all possibilities are equally
-likely, the random variable $X$ giving the identity and type of the
-bent coin has entropy $H(X)=\log{2n}$. What about weighing, $Y$, well
-each weighing involves taking two groups of coins and balancing them
-and this has three possible outcomes: left heavier, right heavier or
+So given that one of $n$ coins is counterfeit; there are $2n$ possible
+configurations, numbering the coins one to $n$, each possibility is
+either of the form the $i$th coin is heavier, or the $i$th coin is
+lighter. Thus, assuming all possibilities are equally likely, the
+random variable $X$ giving the identity and type of the bent coin has
+entropy $H(X)=\log{2n+1}$, the plus one is for the possibility that
+there is no counterfeit coin. What about weighing, $Y$, well each
+weighing involves taking two groups of coins and balancing them and
+this has three possible outcomes: left heavier, right heavier or
 balanced. Obivously, depending on what we have already worked out
 about the coins from previous weighings, these possibilities have
 different outcomes, for example, at the start, given that one coin is
@@ -146,10 +147,10 @@ H(X)=H(Y_1,Y_2,\ldots,Y_k)\le H(Y_i)\le k\log{3}
 \end{equation}
 and hence
 \begin{equation}
-n\le 3^{k}/2
+n\le \frac{3^{k}-1}{2}
 \end{equation}
 Hence, if it is possible to identify and type the coin in $k$
-weighings, we know we have less than $3^k/2$ coins. This bound may not
+weighings, we know we have less than $(3^k-1)/2$ coins. This bound may not
 be sharp, for particular values of $k$ it may not be possible to
 choose a stategy so each $Y$ has $H(Y)=\log{3}$ or so that the entropy
 of the joint distribution is equal to the sum of the entropies of the
