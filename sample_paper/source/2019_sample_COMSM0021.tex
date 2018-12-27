@@ -1,0 +1,205 @@
+\documentclass{article}
+
+\usepackage{amsmath,amsfonts,amssymb}   
+
+\newif\ifanswer
+\answertrue
+%\answerfalse
+
+\let\imp=\Rightarrow
+\let\iff=\Leftrightarrow
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{tikz-qtree}
+\lstset{language=C}
+
+
+\tikzset{every tree node/.style={minimum width=2em,draw,circle},
+         blank/.style={draw=none},
+         edge from parent/.style=
+         {draw,->, edge from parent path={(\tikzparentnode) -- (\tikzchildnode)}},
+         level distance=1.5cm}
+
+\begin{document}
+
+\section*{COMS10011 sample paper}
+
+THIS IS STILL A WORK IN PROGRESS! When it is done the following will
+apply: This is a sample paper, it has the same style of question as
+the real paper, the layout is slightly different to the official exam
+layout.
+
+\subsection*{Rubric}{
+This paper contains \emph{two} parts. \\
+The first section contains \emph {15} short questions.\\ 
+Each question is worth \emph{two marks} and all should be attempted.\\
+The second section contains \emph {three} long questions.\\
+Each long question is worth \emph{20 marks}.\\
+The best \emph{two} long question answers will be used for assessment. \\
+The maximum for this paper is \emph{70 marks}. \\
+Calculators must have the Faculty of Engineering Seal of Approval.}
+
+%MSM: unit specific Latex commands 
+
+\subsection*{Section A: short questions - answer all questions}
+
+\begin{enumerate}
+
+%1 conor
+\item What is the definition of Shannon's entropy for a discrete distribution?
+
+  \ifanswer
+  For sample space $\mathcal{X}$ we have
+  \begin{equation}
+    H(X)=-\sum_{x\in\mathcal{X}}p(x)\log{p(x)}
+  \end{equation}
+  \fi
+
+  %2 conor
+
+\item If you have a finite set of $n$ spike trains and calculate the
+  entropy of the spike trains using the discretization method proposed
+  by Bialek and co-workers, in general, what limit would the entropy
+  reach as the time step is made very small?
+
+  \ifanswer If the time step is small enough each spike train would
+  correspond to a different word, with small enough time step, each
+  spike in each train would, in general, fall into a different time
+  bins. This means there would be $n$ different words, each with one
+  occurance and hence probability $1/n$. Thus the entropy would be
+  $\log{n}$. I recently had to reject a paper where the authors had
+  completely misunderstood this!
+  \fi
+  
+%3 conor
+\item If we have a Markov chain $V\rightarrow X\rightarrow H$ what can we say about $p_{V,H|X}(v,h|x)$?
+
+\ifanswer
+\begin{equation}
+p_{V,H|X}(v,h|x)=p_{V|X}(v|x)p_{H|X}(h|x)
+\end{equation}
+
+%4 conor
+\item What is the cocktail party problem?
+
+  \ifanswer Often the environment is very noisy with a sound, such as a voice, that is being attended to, not much distinguished in amplitude from other noises. I have read that this situation holds at \lq{}cocktail parties\rq{}, a form of social entertainment. The cocktail party problem is the question of how the brain seperates the sound signal it is attending to from the background noise.
+  \fi
+
+%5 conor
+\item In the Eriksen flanker task sketch the accuracy versus
+reaction time for the consistent, \textbf{HHH}, and inconsistient,
+\textbf{HSH}, conditions. The overall scale of the reaction time is
+not what is being asked for, rather the shape.
+
+\ifanswer
+In both cases the line starts at 0.5 but in the consistient case it
+rises quickly to one, in the inconsistient case it falls below 0.5
+before rising more slowly to one. [1 mark for starting at 0.5 and rising to 1, the other for the dip in inconsistient].
+\fi
+
+%6 conor
+\item The $n$-armed bandit task is used in psychological studies of decision making. What is an $n$-armed bandit?
+
+  \ifanswer
+  In an $n$-armed bandit the participant has to chose between $n$ options, typically $n$ buttons, each with a different probability of reward.
+  \fi
+
+  %7 conor
+\item If four options in a decision task have estimated reward values $r_1$, $r_2$, $r_3$ and $r_4$, what is the soft-max probability for chosing the $i$th option?
+
+  \ifanswer
+  \begin{equation}
+    p_i=\frac{e^{\beta r_i}}{\sum_j e^{\beta r_j}}
+  \end{equation}
+  for some $\beta$, a parameter determining the exploration to explotation balance.
+  \fi
+  
+
+
+
+
+
+  
+
+  
+\end{enumerate}
+  
+\section*{Section B: long questions - answer two questions}
+
+\begin{enumerate}
+
+%question from conor
+\item 
+
+%question from cian
+
+%question split between conor and cian  
+\item There are two parts to this question, the first is about information theory, the second is about cian stuff.
+  \begin{enumerate}
+  \item{}
+
+
+\begin{enumerate}
+\item{}[3] Define $I(X;Y)$ and give a sufficient condition for $I(X;Y)=0$ for non-trivial random variables $X$ and $Y$?
+  \ifanswer
+  \begin{equation}
+  I(X;Y)=\sum_{x,y}p(x,y)\log{\frac{p(x,y)}{p(x)p(y)}}
+  \end{equation}
+  and this is zero if the argument of the log is zero, that is $p(x,y)=p(x)p(y)$ for all $x$ and $y$, that is when $X$ and $Y$ are independent.
+  \fi
+\item{}[4]
+ Calculate the mutual information between random variables $X$ and $Y$ with sample spaces $\mathcal{X}=\{\mbox{a},\mbox{b},\mbox{c}\}$ and $\mathcal{Y}=\{\alpha,\beta\}$.
+  \begin{center}
+  \begin{tabular}{c|ccc}
+    \hline
+    &\mbox{a}&\mbox{b}&\mbox{c}\\
+    $\alpha$&0.5&0.125&0\\
+    $\beta$&0&0.125&0.25
+    \end{tabular}
+  \end{center}
+You can write the answer in terms of $\log{3}$ and $\log{5}$ if you would prefer.
+  
+  \ifanswer
+So to marginalize we have, using the obvious abuse of notation $p(X)=\{0.5,0.25,0.25\}$ and $p(Y)=\{0.625,0.375\}$ so the table for $p_X(x)p_Y(y)$ is
+  \begin{center}
+  \begin{tabular}{c|ccc}
+    \hline
+    &\mbox{a}&\mbox{b}&\mbox{c}\\
+    $\alpha$&5/16&5/32&5/32\\
+    $\beta$&3/16&3/32&3/32
+    \end{tabular}
+  \end{center}
+  now
+  \begin{equation}
+    I(X;Y)=\sum_{x,y}p(x,y)\log{\frac{p(x,y)}{p(x)p(y)}}
+  \end{equation}
+  so
+  \begin{eqnarray}
+    I(X;Y)&=&\frac{1}{2}\log{\frac{1/2}{5/16}}+\frac{1}{4}\log{\frac{1/8}{5/32}}+\frac{1/4}\log{\frac{1/8}{3/32}}+\frac{1}{4}\log{\frac{1/4}{3/32}}\cr
+    &=&\frac{1}{2}\log{\frac{8}{5}}+\frac{1}{4}\log{\frac{4}{5}}+\frac{1/4}\log{\frac{4}{3}}+\frac{1}{4}\log{\frac{8}{3}}\cr
+    &=&\frac{13}{4}-\frac{3}{4}\log{5}-\frac{1}{2}\log{3}\approx 0.716
+  \end{eqnarray}
+
+  \fi
+
+\item{}[3] Show $I(X;Y)=H(X)-H(X|Y)$.
+
+  \ifanswer
+  So we start with the definition of the mutual information
+  \begin{equation}
+    I(X;Y)=\sum_{x,y} p(x,y)\log{\frac{p(x,y)}{p(x)p(y)}}
+  \end{equation}
+  and then write $p(x,y)=p(x|y)p(y)$ giving
+    \begin{equation}
+    I(X;Y)=\sum_{x,y} p(x,y)\log{\frac{p(x|y)}{p(x)}}=\sum_{x,y}p(x,y)\log{p(x|y)}-\sum_{x,y}p(x,y)\log{p(x)}
+  \end{equation}
+In the first term write $p(x,y)=p(x|y)p(y)$$ again to get the definition of $H(X|Y)$ and in the second term sum over $y$ to marginalize $p(x,y)$ to $p(x)$.
+  
+\end{enumerate}
+\item{}[10] Cian's part
+  \end{enumerate}
+
+  
+ \end{enumerate}
+  
+\end{document}
