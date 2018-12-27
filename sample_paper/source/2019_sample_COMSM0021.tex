@@ -129,8 +129,31 @@ before rising more slowly to one. [1 mark for starting at 0.5 and rising to 1, t
 \begin{enumerate}
 
 %question from conor
-\item 
+\item This question is about the Kalman filter. INCOMPLETE
+\begin{emumerate}
+\item{}[5] Consider two random variables which are conditionally independent with normal distributions:
+  \begin{eqnarray}
+    p_{X|H}(x|h)&=&\frac{1}{\sqrt{2\pi\sigma_X^2}}e^{-(x-h)^2/2\sigma_X^2}\cr
+    p_{Y|H}(y|h)&=&\frac{1}{\sqrt{2\pi\sigma_Y^2}}e^{-(y-h)^2/2\sigma_Y^2}\cr
+  \end{equation}
+  then $p_{X|H}(x|h)p_{Y|H}(y|h)$ is proportional to a normal distribution in $h$. What is that normal distribution?
+ 
+  \ifanswer  Well this is just an exercise in matching terms, with the obvious notation:
+  \begin{equation}
+    \frac{1}{\sigma^2}(h^2-2h\mu)=\frac{1}{\sigma_X^2}(h^2-2hx)+\frac{1}{\sigma_Y^2}(h^2-2hy)
+  \end{equation}
+  so
+  \begin{equation}
+    \frac{1}{\sigma^2}=\frac{1}{\sigma_X^2}+\frac{1}{\sigma_Y^2}
+  \end{equation}
+  and
+  \begin{equation}
+  \mu=\frac{\sigma^2}{\sigma_X^2}x+\frac{\sigma^2}{\sigma_Y^2}y
+  \end{equation}
 
+  \end{enumerate}
+
+  
 %question from cian
 
 %question split between conor and cian  
