@@ -48,7 +48,7 @@ Calculators must have the Faculty of Engineering Seal of Approval.}
 %1 conor
 \item What is the definition of Shannon's entropy for a discrete distribution?
 
-  \ifanswer
+  \ifanswer \textbf{Answer}:\\
   For sample space $\mathcal{X}$ we have
   \begin{equation}
     H(X)=-\sum_{x\in\mathcal{X}}p(x)\log{p(x)}
@@ -62,7 +62,7 @@ Calculators must have the Faculty of Engineering Seal of Approval.}
   by Bialek and co-workers, in general, what limit would the entropy
   reach as the time step is made very small?
 
-  \ifanswer If the time step is small enough each spike train would
+  \ifanswer \textbf{Answer}:\\ If the time step is small enough each spike train would
   correspond to a different word, with small enough time step, each
   spike in each train would, in general, fall into a different time
   bins. This means there would be $n$ different words, each with one
@@ -72,9 +72,9 @@ Calculators must have the Faculty of Engineering Seal of Approval.}
   \fi
   
 %3 conor
-\item If we have a Markov chain $V\rightarrow X\rightarrow H$ what can we say about $p_{V,H|X}(v,h|x)$?
+\item Given a Markov chain $V\rightarrow X\rightarrow H$ what can we say about $p_{V,H|X}(v,h|x)$?
 
-\ifanswer
+\ifanswer \textbf{Answer}:\\
 \begin{equation}
 p_{V,H|X}(v,h|x)=p_{V|X}(v|x)p_{H|X}(h|x)
 \end{equation}
@@ -82,7 +82,7 @@ p_{V,H|X}(v,h|x)=p_{V|X}(v|x)p_{H|X}(h|x)
 %4 conor
 \item What is the cocktail party problem?
 
-  \ifanswer Often the environment is very noisy with a sound, such as a voice, that is being attended to, not much distinguished in amplitude from other noises. I have read that this situation holds at \lq{}cocktail parties\rq{}, a form of social entertainment. The cocktail party problem is the question of how the brain seperates the sound signal it is attending to from the background noise.
+  \ifanswer \textbf{Answer}:\\ Often the environment is very noisy with a sound, such as a voice, that is being attended to, not much distinguished in amplitude from other noises. I have read that this situation holds at \lq{}cocktail parties\rq{}, a form of social entertainment. The cocktail party problem is the question of how the brain seperates the sound signal it is attending to from the background noise.
   \fi
 
 %5 conor
@@ -91,7 +91,7 @@ reaction time for the consistent, \textbf{HHH}, and inconsistient,
 \textbf{HSH}, conditions. The overall scale of the reaction time is
 not what is being asked for, rather the shape.
 
-\ifanswer
+\ifanswer \textbf{Answer}:\\
 In both cases the line starts at 0.5 but in the consistient case it
 rises quickly to one, in the inconsistient case it falls below 0.5
 before rising more slowly to one. [1 mark for starting at 0.5 and rising to 1, the other for the dip in inconsistient].
@@ -100,14 +100,14 @@ before rising more slowly to one. [1 mark for starting at 0.5 and rising to 1, t
 %6 conor
 \item The $n$-armed bandit task is used in psychological studies of decision making. What is an $n$-armed bandit?
 
-  \ifanswer
+  \ifanswer \textbf{Answer}:\\
   In an $n$-armed bandit the participant has to chose between $n$ options, typically $n$ buttons, each with a different probability of reward.
   \fi
 
   %7 conor
 \item If four options in a decision task have estimated reward values $r_1$, $r_2$, $r_3$ and $r_4$, what is the soft-max probability for chosing the $i$th option?
 
-  \ifanswer
+  \ifanswer \textbf{Answer}:\\
   \begin{equation}
     p_i=\frac{e^{\beta r_i}}{\sum_j e^{\beta r_j}}
   \end{equation}
@@ -129,16 +129,16 @@ before rising more slowly to one. [1 mark for starting at 0.5 and rising to 1, t
 \begin{enumerate}
 
 %question from conor
-\item This question is about the Kalman filter. INCOMPLETE
-\begin{emumerate}
-\item{}[5] Consider two random variables which are conditionally independent with normal distributions:
+\item This question is about the Kalman filter. 
+\begin{enumerate}
+\item{}[7] Consider two random variables which are conditionally independent with normal distributions:
   \begin{eqnarray}
     p_{X|H}(x|h)&=&\frac{1}{\sqrt{2\pi\sigma_X^2}}e^{-(x-h)^2/2\sigma_X^2}\cr
-    p_{Y|H}(y|h)&=&\frac{1}{\sqrt{2\pi\sigma_Y^2}}e^{-(y-h)^2/2\sigma_Y^2}\cr
-  \end{equation}
+    p_{Y|H}(y|h)&=&\frac{1}{\sqrt{2\pi\sigma_Y^2}}e^{-(y-h)^2/2\sigma_Y^2}
+  \end{eqnarray}
   then $p_{X|H}(x|h)p_{Y|H}(y|h)$ is proportional to a normal distribution in $h$. What is that normal distribution?
  
-  \ifanswer  Well this is just an exercise in matching terms, with the obvious notation:
+  \ifanswer \textbf{Answer}:\\  Well this is just an exercise in matching terms, with the obvious notation:
   \begin{equation}
     \frac{1}{\sigma^2}(h^2-2h\mu)=\frac{1}{\sigma_X^2}(h^2-2hx)+\frac{1}{\sigma_Y^2}(h^2-2hy)
   \end{equation}
@@ -150,9 +150,44 @@ before rising more slowly to one. [1 mark for starting at 0.5 and rising to 1, t
   \begin{equation}
   \mu=\frac{\sigma^2}{\sigma_X^2}x+\frac{\sigma^2}{\sigma_Y^2}y
   \end{equation}
+  \fi
+\item{}[8] Consider an object moving at constant speed $v$ so that its position $x$ after a time $\delta t$ is
+  $$
+  x(t+\delta t)=x(t)+v\delta t+\xi
+  $$ where $\xi$ is random noise drawn from
+  $\mathcal{N}(0,\sigma^2_s)$. A sensor estimates the position of the
+  object with noise drawn from $\mathcal{N}(0,\sigma^2_s)$. Derive the
+  Kalman gain for optimally estimating the position of the object.
 
+  \ifanswer \textbf{Answer}:\\ Let $h(t)$ be the estimated position with uncertainty
+  $\sigma_h^2(t)$, after $\delta t$ the dead reckoning estimate is
+  $d=h+v\delta t$ with uncertainty given by variance
+  $\sigma_d^2=\sigma_h^2+\sigma_s^2$. Then we do Bayesian fusion to calculate the new estimated position
+ 
+  \begin{equation}
+    h(t+\delta t)=\frac{\sigma_h^2(t+\delta t)}{\sigma_d^2} d+\frac{\sigma_h^2(t+\delta t)}{\sigma_s^2} s
+  \end{equation}
+  where $s$ is the sensor estimate and
+  \begin{equation}
+    \frac{1}{\sigma_h^2(t+\delta t)}=\frac{1}{\sigma_d^2}+\frac{1}{\sigma_s^2}
+  \end{equation}
+  Rearranging this gives
+  \begin{equation}
+    h(t+\delta t)=d+k(s-d)
+  \end{equation}
+  where
+  \begin{equation}
+    k=\frac{\sigma_h^2(t+\delta t)}{\sigma_s^2}=\frac{\sigma_d^2}{\sigma_d^2+\sigma_s^2}
+  \end{equation}
+  This is the same calculation done in the Kalman filter notes, just with a slightly different notation.
   \end{enumerate}
+\item{}[5] Explain what is meant by a forward model for motor control.
 
+  \ifanswer \textbf{Answer}:\\ In a forward model the brain predicts the effect of a
+  motor command, this is used to calculate the next motor command is a
+  feedback control loop; sensor feedback is used to correct the
+  prediction. For movement the prediction will be a dead reckoning estimate.
+  \fi
   
 %question from cian
 
@@ -164,7 +199,7 @@ before rising more slowly to one. [1 mark for starting at 0.5 and rising to 1, t
 
 \begin{enumerate}
 \item{}[3] Define $I(X;Y)$ and give a sufficient condition for $I(X;Y)=0$ for non-trivial random variables $X$ and $Y$?
-  \ifanswer
+  \ifanswer \textbf{Answer}:\\
   \begin{equation}
   I(X;Y)=\sum_{x,y}p(x,y)\log{\frac{p(x,y)}{p(x)p(y)}}
   \end{equation}
@@ -182,7 +217,7 @@ before rising more slowly to one. [1 mark for starting at 0.5 and rising to 1, t
   \end{center}
 You can write the answer in terms of $\log{3}$ and $\log{5}$ if you would prefer.
   
-  \ifanswer
+  \ifanswer \textbf{Answer}:\\
 So to marginalize we have, using the obvious abuse of notation $p(X)=\{0.5,0.25,0.25\}$ and $p(Y)=\{0.625,0.375\}$ so the table for $p_X(x)p_Y(y)$ is
   \begin{center}
   \begin{tabular}{c|ccc}
@@ -207,20 +242,20 @@ So to marginalize we have, using the obvious abuse of notation $p(X)=\{0.5,0.25,
 
 \item{}[3] Show $I(X;Y)=H(X)-H(X|Y)$.
 
-  \ifanswer
+  \ifanswer \textbf{Answer}:\\
   So we start with the definition of the mutual information
   \begin{equation}
     I(X;Y)=\sum_{x,y} p(x,y)\log{\frac{p(x,y)}{p(x)p(y)}}
   \end{equation}
   and then write $p(x,y)=p(x|y)p(y)$ giving
-    \begin{equation}
-    I(X;Y)=\sum_{x,y} p(x,y)\log{\frac{p(x|y)}{p(x)}}=\sum_{x,y}p(x,y)\log{p(x|y)}-\sum_{x,y}p(x,y)\log{p(x)}
-  \end{equation}
-In the first term write $p(x,y)=p(x|y)p(y)$$ again to get the definition of $H(X|Y)$ and in the second term sum over $y$ to marginalize $p(x,y)$ to $p(x)$.
-  
+    \begin{eqnarray}
+    I(X;Y)&=&\sum_{x,y} p(x,y)\log{\frac{p(x|y)}{p(x)}}\cr &=&\sum_{x,y}p(x,y)\log{p(x|y)}-\sum_{x,y}p(x,y)\log{p(x)}
+  \end{eqnarray}
+In the first term write $p(x,y)=p(x|y)p(y)$ again to get the definition of $H(X|Y)$ and in the second term sum over $y$ to marginalize $p(x,y)$ to $p(x)$.
+  \fi
 \end{enumerate}
 \item{}[10] Cian's part
-  \end{enumerate}
+\end{enumerate}
 
   
  \end{enumerate}
