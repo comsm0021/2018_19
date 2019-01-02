@@ -3,8 +3,8 @@
 \usepackage{amsmath,amsfonts,amssymb}   
 
 \newif\ifanswer
-\answertrue
-%\answerfalse
+%\answertrue
+\answerfalse
 
 \let\imp=\Rightarrow
 \let\iff=\Leftrightarrow
@@ -24,10 +24,10 @@
 
 \section*{COMS10011 sample paper}
 
-THIS IS STILL A WORK IN PROGRESS! When it is done the following will
-apply: This is a sample paper, it has the same style of question as
-the real paper, the layout is slightly different to the official exam
-layout.
+THIS IS STILL A WORK IN PROGRESS but is close to its final form! This
+is a sample paper, it has the same style of question as the real
+paper, the layout is slightly different in trivial ways to the
+official exam layout.
 
 \subsection*{Rubric}{
 This paper contains \emph{two} parts. \\
@@ -78,7 +78,7 @@ Calculators must have the Faculty of Engineering Seal of Approval.}
 \begin{equation}
 p_{V,H|X}(v,h|x)=p_{V|X}(v|x)p_{H|X}(h|x)
 \end{equation}
-
+\fi
 %4 conor
 \item What is the cocktail party problem?
 
@@ -152,13 +152,17 @@ before rising more slowly to one. [1 mark for starting at 0.5 and rising to 1, t
   \ifanswer \textbf{Answer}: $\underbrace{Q(S_t, A_t)}_{\mathrm{value}} = Q(S_t, A_t) + (\overbrace{\underbrace{R_{t+1}}_{\mathrm{reward}}+\lambda \underbrace{\mathrm{max}_a Q(S_{t+1},a)}_{\mathrm{future\:value}}}^{\mathrm{learned\:value}}-Q_{t}(S_t,A_t))$. It differs from TD learning in that it takes the action with maximal value for the update, which makes Q-learning an off-policy method.\\
   \fi
 
+  %1 cian
+\item How many different joint activity patterns could a population of $N$ binary neurons generate?
 
-
-
-
+\ifanswer \textbf{answer to appear} \fi
   
+  %2 cian
+\item What is the basic idea underlying the dichotomised gaussian model for neural population data?
 
-  
+  \ifanswer \textbf{answer to appear}
+  \fi
+
 \end{enumerate}
   
 \section*{Section B: long questions - answer two questions}
@@ -217,6 +221,7 @@ before rising more slowly to one. [1 mark for starting at 0.5 and rising to 1, t
     k=\frac{\sigma_h^2(t+\delta t)}{\sigma_s^2}=\frac{\sigma_d^2}{\sigma_d^2+\sigma_s^2}
   \end{equation}
   This is the same calculation done in the Kalman filter notes, just with a slightly different notation.
+\fi
   
 \item{}[5 marks] Explain what is meant by a forward model for motor control.
 
@@ -228,14 +233,10 @@ before rising more slowly to one. [1 mark for starting at 0.5 and rising to 1, t
   
   \end{enumerate}
   
-%question from cian
-
 %question split between conor and cian  
-\item There are two parts to this question, the first is about information theory, the second is about cian stuff.
+\item There are two parts to this question, the first is about information theory, the second is about statistical models.
   \begin{enumerate}
-  \item{}
-
-
+  \item{Information theory}
 \begin{enumerate}
 \item{}[3 marks] Define $I(X;Y)$ and give a sufficient condition for $I(X;Y)=0$ for non-trivial random variables $X$ and $Y$?
   \ifanswer \textbf{Answer}:\\
@@ -293,8 +294,28 @@ So to marginalize we have, using the obvious abuse of notation $p(X)=\{0.5,0.25,
 In the first term write $p(x,y)=p(x|y)p(y)$ again to get the definition of $H(X|Y)$ and in the second term sum over $y$ to marginalize $p(x,y)$ to $p(x)$.
   \fi
 \end{enumerate}
-\item{}[10 marks] Cian's part
+\item Statistical models.\\
+
+The pairwise and K-pairwise maximum entropy statistical models are often used for neural population data. The K-pairwise model gives the probability for a neural population activity pattern as 
+
+$$
+p(x_1,x_2,\ldots,x_N) = \frac{1}{Z}\exp[\sum_i h_i x_i + \sum_{i \neq j} J_{ij} x_i x_j + V(\sum_i x_i)]
+$$
+
+  
+\begin{enumerate}
+
+\item{}[3 marks] The equation for the standard pairwise maximum entropy model differs from the above by one term. Which term does it omit? 
+
+\item{}[6 marks] How many unique parameters do each of the pairwise and K-pairwise maximum entropy models have? 
+
+\item{}[1 mark]  Which of the two models more accurately matches neural population data? [1 mark]
+
+\ifanswer \textbf{answers to appear} \fi
+  
 \end{enumerate}
+
+  \end{enumerate}
 
 
 %question from rui
