@@ -321,13 +321,13 @@ $$
 %question from rui
 \item This question is about supervised learning in the brain.
 \begin{enumerate}
-\item{}[5 marks] How may the brain implement supervised learning? [5 marks]
+\item{}[5 marks] How may the brain implement supervised learning?
 
   \ifanswer \textbf{Answer}: The classical example of supervised learning in the brain is in the cerebellum, where specific error signals appears to be computed [2.5 marks]. However, the cortex may also use some forms of supervised learning by relying on internally generated supervised signals, which may in turn use algorithms akin to the backpropagation algorithm to efficiently update synaptic weights [2.5 marks].\\
   \fi
 
 
-\item{}[11 marks] Give one feature that has been suggested to make the backpropagation algorithm used in supervised learning biologically implausible? You should use a simple two layer neural network (with one hidden neuron $h$, one output neuron $v$, one input weights, and no biases, see Figure~\ref{fig:backprop_ff}) to derive the weight update. Assume the cost function (or error) to be $E = (v-y)^2$, where $y$ is the desired target [11 marks].
+\item{}[11 marks] Give one feature that has been suggested to make the backpropagation algorithm used in supervised learning biologically implausible? You should use a simple two layer neural network (with one hidden neuron $h$, one output neuron $v$, one input weights, and no biases, see Figure~\ref{fig:backprop_ff}) to derive the weight update. Assume the cost function (or error) to be $E = (v-y)^2$, where $y$ is the desired target.
 
 \begin{figure}[htb!]
   \centering
@@ -369,7 +369,7 @@ Any of the following features can be indicated [5 marks]\\
   \fi
 
 
-\item{}[4 marks] What features do artificial neuronal networks trained with backprop learn (e.g. when trained to discriminate objects in images)? Why do they provide a good match to the activity of neurons in the brain? [4 marks]\\
+\item{}[4 marks] What features do artificial neuronal networks trained with backprop learn (e.g. when trained to discriminate objects in images)? Why do they provide a good match to the activity of neurons in the brain? \\
 
   \ifanswer \textbf{Answer}: Artificial neural networks (ANNs) learn to detect features similar to the ones observed in the brain [1 mark], such as oriented bars or Gabor-like receptive fields, but also face-like features [1 mark]. Given that both ANNs and the brain need to be optimised to discriminate images [1 mark] and that there is recent evidence for learning principles similar to backprop in the brain [1 mark] this might explain why these networks are good computational models of neuronal data.\\
   \fi
