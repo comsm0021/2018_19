@@ -111,9 +111,46 @@ before rising more slowly to one. [1 mark for starting at 0.5 and rising to 1, t
   \begin{equation}
     p_i=\frac{e^{\beta r_i}}{\sum_j e^{\beta r_j}}
   \end{equation}
-  for some $\beta$, a parameter determining the exploration to explotation balance.
+  for some $\beta$, a parameter determining the exploration to exploitation balance.
+  \fi
+
+
+  %1 rui
+\item Define the credit assignment problem in neuroscience.
+
+  \ifanswer \textbf{Answer}: The credit assignment is the problem of deciding how to change parameters in the brain (typically synaptic weights) to best improve behaviour (e.g. a desired motor output).
   \fi
   
+    %2 rui
+\item What are the two key features of gated recurrent neural networks?
+
+  \ifanswer \textbf{Answer}: Gated RNNs have two defining features, the memory cell and the gating units.\\
+  \fi
+  
+     %3 rui
+\item What is the key difference between supervised and reinforcement learning in terms of their cost function?
+
+  \ifanswer \textbf{Answer}: The existence of a teacher (or teaching signal) in supervised learning, and a reward signal in reinforcement learning.\\
+  \fi
+  
+  
+     %4 rui
+\item What types of features are learned by sparse coding algorithms when applied to natural images?
+
+  \ifanswer \textbf{Answer}: Features representing statistics of natural images, such as oriented bars/edges.\\
+  \fi
+  
+     %5 rui
+\item Give the classical cost function used in sparse coding.
+
+  \ifanswer \textbf{Answer}: $\mathrm{cost} = \Vert U - WV \Vert_2^2 + \lambda \Vert V\Vert_1$, where $V$ is the activity of output neurons and $U$ is the input activity of input neurons. The second term enforces sparsity.\\
+  \fi
+  
+     %6 rui
+\item Give the value update function used in Q-Learning? How does it differ from TD learning?
+
+  \ifanswer \textbf{Answer}: $\underbrace{Q(S_t, A_t)}_{\mathrm{value}} = Q(S_t, A_t) + (\overbrace{\underbrace{R_{t+1}}_{\mathrm{reward}}+\lambda \underbrace{\mathrm{max}_a Q(S_{t+1},a)}_{\mathrm{future\:value}}}^{\mathrm{learned\:value}}-Q_{t}(S_t,A_t))$. It differs from TD learning in that it takes the action with maximal value for the update, which makes Q-learning an off-policy method.\\
+  \fi
 
 
 
@@ -131,7 +168,7 @@ before rising more slowly to one. [1 mark for starting at 0.5 and rising to 1, t
 %question from conor
 \item This question is about the Kalman filter. 
 \begin{enumerate}
-\item{}[7] Consider two random variables which are conditionally independent with normal distributions:
+\item{}[7 marks] Consider two random variables which are conditionally independent with normal distributions:
   \begin{eqnarray}
     p_{X|H}(x|h)&=&\frac{1}{\sqrt{2\pi\sigma_X^2}}e^{-(x-h)^2/2\sigma_X^2}\cr
     p_{Y|H}(y|h)&=&\frac{1}{\sqrt{2\pi\sigma_Y^2}}e^{-(y-h)^2/2\sigma_Y^2}
@@ -151,7 +188,7 @@ before rising more slowly to one. [1 mark for starting at 0.5 and rising to 1, t
   \mu=\frac{\sigma^2}{\sigma_X^2}x+\frac{\sigma^2}{\sigma_Y^2}y
   \end{equation}
   \fi
-\item{}[8] Consider an object moving at constant speed $v$ so that its position $x$ after a time $\delta t$ is
+\item{}[8 marks] Consider an object moving at constant speed $v$ so that its position $x$ after a time $\delta t$ is
   $$
   x(t+\delta t)=x(t)+v\delta t+\xi
   $$ where $\xi$ is random noise drawn from
@@ -180,14 +217,16 @@ before rising more slowly to one. [1 mark for starting at 0.5 and rising to 1, t
     k=\frac{\sigma_h^2(t+\delta t)}{\sigma_s^2}=\frac{\sigma_d^2}{\sigma_d^2+\sigma_s^2}
   \end{equation}
   This is the same calculation done in the Kalman filter notes, just with a slightly different notation.
-  \end{enumerate}
-\item{}[5] Explain what is meant by a forward model for motor control.
+  
+\item{}[5 marks] Explain what is meant by a forward model for motor control.
 
   \ifanswer \textbf{Answer}:\\ In a forward model the brain predicts the effect of a
   motor command, this is used to calculate the next motor command is a
   feedback control loop; sensor feedback is used to correct the
   prediction. For movement the prediction will be a dead reckoning estimate.
   \fi
+  
+  \end{enumerate}
   
 %question from cian
 
@@ -198,14 +237,14 @@ before rising more slowly to one. [1 mark for starting at 0.5 and rising to 1, t
 
 
 \begin{enumerate}
-\item{}[3] Define $I(X;Y)$ and give a sufficient condition for $I(X;Y)=0$ for non-trivial random variables $X$ and $Y$?
+\item{}[3 marks] Define $I(X;Y)$ and give a sufficient condition for $I(X;Y)=0$ for non-trivial random variables $X$ and $Y$?
   \ifanswer \textbf{Answer}:\\
   \begin{equation}
   I(X;Y)=\sum_{x,y}p(x,y)\log{\frac{p(x,y)}{p(x)p(y)}}
   \end{equation}
   and this is zero if the argument of the log is zero, that is $p(x,y)=p(x)p(y)$ for all $x$ and $y$, that is when $X$ and $Y$ are independent.
   \fi
-\item{}[4]
+\item{}[4 marks]
  Calculate the mutual information between random variables $X$ and $Y$ with sample spaces $\mathcal{X}=\{\mbox{a},\mbox{b},\mbox{c}\}$ and $\mathcal{Y}=\{\alpha,\beta\}$.
   \begin{center}
   \begin{tabular}{c|ccc}
@@ -240,7 +279,7 @@ So to marginalize we have, using the obvious abuse of notation $p(X)=\{0.5,0.25,
 
   \fi
 
-\item{}[3] Show $I(X;Y)=H(X)-H(X|Y)$.
+\item{}[3 marks] Show $I(X;Y)=H(X)-H(X|Y)$.
 
   \ifanswer \textbf{Answer}:\\
   So we start with the definition of the mutual information
@@ -254,10 +293,68 @@ So to marginalize we have, using the obvious abuse of notation $p(X)=\{0.5,0.25,
 In the first term write $p(x,y)=p(x|y)p(y)$ again to get the definition of $H(X|Y)$ and in the second term sum over $y$ to marginalize $p(x,y)$ to $p(x)$.
   \fi
 \end{enumerate}
-\item{}[10] Cian's part
+\item{}[10 marks] Cian's part
 \end{enumerate}
 
-  
+
+%question from rui
+\item This question is about supervised learning in the brain.
+\begin{enumerate}
+\item{}[5 marks] How may the brain implement supervised learning? [5 marks]
+
+  \ifanswer \textbf{Answer}: The classical example of supervised learning in the brain is in the cerebellum, where specific error signals appears to be computed [2.5 marks]. However, the cortex may also use some forms of supervised learning by relying on internally generated supervised signals, which may in turn use algorithms akin to the backpropagation algorithm to efficiently update synaptic weights [2.5 marks].\\
+  \fi
+
+
+\item{}[11 marks] Give one feature that has been suggested to make the backpropagation algorithm used in supervised learning biologically implausible? You should use a simple two layer neural network (with one hidden neuron $h$, one output neuron $v$, one input weights, and no biases, see Figure~\ref{fig:backprop_ff}) to derive the weight update. Assume the cost function (or error) to be $E = (v-y)^2$, where $y$ is the desired target [11 marks].
+
+\begin{figure}[htb!]
+  \centering
+  \includegraphics[width=0.4\linewidth]{backprop_ff}
+  \caption{\textbf{Schematic of simple feedfoward neural network, with quadratic units $\sigma (x) = x^2$.}}
+  \label{fig:backprop_ff}
+\end{figure}
+
+  \ifanswer \textbf{Answer}: To illustrate the backprop algorithm we provide the update rule for weight $w_{hu_1}$ (similar for $w_{hu_2}$) is given by $\frac{\partial E}{\partial w_{hu_1}} = \frac{\partial E}{\partial v}\frac{\partial v}{\partial h}\frac{\partial h}{\partial w_{hu_1}}$ [1 mark]. For the network considered here, these components are [1 mark for each]:
+\begin{equation}
+\frac{\partial E}{\partial v} = 2(v-y)
+\label{eq:dEdv}
+\end{equation}
+\begin{equation}
+\frac{\partial v}{\partial h} = \sigma'_v w_{vh}
+\label{eq:dvdh}
+\end{equation}
+\begin{equation}
+\frac{\partial h}{\partial w_{hu_1}} = \sigma'_h u_1
+\label{eq:dhdw}
+\end{equation}
+which together yields $\frac{\partial E}{\partial w_{hu_1}} = 2(v-y) \sigma'_v w_{vh} \sigma'_h u_1$, where $\sigma'=2x$ denotes the derivative of the linear activation function [2 marks]. Note: A good exercise is to represent the different components of the gradient in the schematic of the network.\\
+
+
+Any of the following features can be indicated [5 marks]\\
+\begin{itemize}
+\item \textit{Weight transport problem}: the existence os symmetric weights (i.e. feedback weights derived from backprop are equal to feedforward weights, e.g. $w_{vh}$ (as in Eq.~\ref{eq:dEdv}). Synaptic weights are unidirectional in the brain, which makes symmetric feedforward and feedback weights implausible.\\
+
+\item \textit{Derivative of activation (input-output) function}: Backprop needs the derivative of the neuronal activation function (as in Eqs.~\ref{eq:dvdh} and \ref{eq:dhdw}), which is unclear how it is computed biologically.\\
+
+\item \textit{Target or teaching signal}, unclear whether the brain could provide such a teaching signal needed for the cost/error function. However, in principle, different brain areas encoding different aspects of the environment can act as teachers of other brain areas, or such teaching signal could be provided by an external teacher.\\
+
+\item \textit{Weight learning rule is non-local}: synaptic plasticity (i.e. modification of synaptic weights) typically depends only on locally available information (e.g. pre and postsynaptic activity). However, classical backprop relies on non-local information (error signal, as in $\frac{d E}{d w_{hu_1}}$).\\
+
+\item \textit{Separate learning phase}: Learning needs its only separate phase. Backprop relies on first having a forward phase to update activity and then a backward phase to calculate the error and update the neural network parameters. There is no evidence of such a clear separation between activity and learning in neuroscience.\\
+
+\item \textit{Separate error network}: The use of a separate learning phase with errors, suggests the need for a separate error network. There is no evidence for such separate error networks.\\
+\end{itemize}
+  \fi
+
+
+\item{}[4 marks] What features do artificial neuronal networks trained with backprop learn (e.g. when trained to discriminate objects in images)? Why do they provide a good match to the activity of neurons in the brain? [4 marks]\\
+
+  \ifanswer \textbf{Answer}: Artificial neural networks (ANNs) learn to detect features similar to the ones observed in the brain [1 mark], such as oriented bars or Gabor-like receptive fields, but also face-like features [1 mark]. Given that both ANNs and the brain need to be optimised to discriminate images [1 mark] and that there is recent evidence for learning principles similar to backprop in the brain [1 mark] this might explain why these networks are good computational models of neuronal data.\\
+  \fi
+
+\end{enumerate}  
  \end{enumerate}
-  
+ 
+
 \end{document}
