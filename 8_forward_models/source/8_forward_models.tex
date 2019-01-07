@@ -8,6 +8,71 @@
 \lhead{Neural Information Processing - 8\_forward\_models - Conor}
 \rhead{\thepage}
 \cfoot{}
+
+
+\usepackage{tikz}
+
+\usepackage{pgf}
+\usepackage[utf8]{inputenc}
+\usetikzlibrary{arrows,automata}
+\usetikzlibrary{positioning}
+
+
+\tikzset{
+    neuron/.style={
+           rectangle,
+           rounded corners,
+           draw=black, very thick,
+           inner sep=2pt,
+           text centered,
+           },
+}
+
+
+
+\tikzset{
+    area/.style={
+           rectangle,
+           draw=black, very thick,
+           inner sep=2pt,
+           text centered,
+           },
+}
+
+
+\tikzset{
+    gc/.style={
+           rectangle,
+           rounded corners,
+           draw=red, very thick,
+           inner sep=2pt,
+           text centered,
+           },
+}
+
+
+\tikzset{
+    inh/.style={
+           rectangle,
+           rounded corners,
+           draw=blue, very thick,
+           inner sep=2pt,
+           text centered,
+           },
+}
+
+
+
+\tikzset{
+    io/.style={
+           rectangle,
+           draw=green, very thick,
+           inner sep=2pt,
+           text centered,
+           },
+}
+
+
 \begin{document}
 
 \section*{A forward model for the perception of movement}
@@ -45,7 +110,7 @@ overestimate increases rapidly for movements that take a second or
 less and then descreases slowly for longer movements.
 
 
-\begin{figure}{htb}
+\begin{figure}
 \begin{center}
   \includegraphics[width=6cm]{manipulandum.jpg}
 \end{center}
@@ -56,7 +121,7 @@ less and then descreases slowly for longer movements.
 \end{figure}
 
 
-\begin{figure}{htb}
+\begin{figure}
 \begin{center}
   \includegraphics[width=5cm]{fig_overestimate.png}
 \end{center}
@@ -69,7 +134,7 @@ less and then descreases slowly for longer movements.
   0.9 cm and 2.5 seconds to 2 cm. It should be noted that this is only
   a small fraction of the trials, the trials themselves are uniformly
   chosen from between zero and 30cm, we are told the result plateaus after 2.5 seconds. [Image from
-    \cite{WolpertEtAl1995}].\label{fig_manipulandum}}
+    \cite{WolpertEtAl1995}].\label{fig_overestimate}}
 \end{figure}
 
 It is proposed in \cite{WolpertEtAl1995} that this is evidence for a
@@ -142,9 +207,9 @@ often an error occurs and the information, encoded in neuromodulation,
 of which is likely to be appropriate, is an interesting open question.
 
 
-\begin{figure}{htb}
+\begin{figure}
 \begin{center}
-  \includegraphics[width=5cm]{fig_overestimate.png}
+  \includegraphics[width=5cm]{fig_model.png}
 \end{center}
 \caption{The model bias in estimates of hand position; \textbf{B}
   shows the mean bias and \textbf{C} the mean variance. These show
@@ -153,7 +218,7 @@ of which is likely to be appropriate, is an interesting open question.
   result unless it is assumed the sensory result, like the dead
   reckoning result, has a bias, just a smaller one and one that
   doesn't grow with movement. [Image from
-    \cite{WolpertEtAl1995}].\label{fig_manipulandum}}
+    \cite{WolpertEtAl1995}].\label{fig_model}}
 \end{figure}
 
 
@@ -180,7 +245,143 @@ to the sensory estimate.
 
 \subsection*{The cerebellum}
 
-This leaves open the question
+This leaves open the question as to where the forward model might be
+maintained. The obvious answer is the cerebellum.
+
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=5cm]{fig_gray.png}
+\end{center}
+\caption{A drawing showing where the cerebellum is in the brain. [Picture from wikipedia which in turn got it from an old edition of \textsl{Gray's Anatomy}]\label{fig_gray}}
+\end{figure}
+
+
+The cerebellum is found at the back of the brain, see
+Fig.~\ref{fig_gray}; it is well conserved across vertebrate species
+and is known to be involved in movement. The cerebellum has a number
+of striking features; it has a more stereotypical structure than most
+brain area and this structure is conaerved across species. It also has
+one of the brain's largest cells, the Purkinje cell, and its most
+numerous, the granule cell.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=7cm]{Purkinje_cell_by_Cajal.png}
+\end{center}
+\caption{A drawing by Santiago Ram\'{o}n y Cajal of a Purkinje cell. [Picture taken from \texttt{http://en.wikipedia.org/wiki/Golgi's\_method}]\label{fig:PC}}
+\end{figure}
+
+Purkinje cells have a distinctive structure with a huge, highly
+branched, but flat dendritic arbor, see Fig.~\ref{fig:PC}; this allows
+an extensive connectivity with each Purkinje cell receiving inputs
+from around 100,000 other cells. In the cerebellum the Purkinje cell
+are lined up like pages in a book, with their arbors lying in parallel
+planes. They receive two excitatory inputs, weak inputs from parallel
+fibres, axons that run perpendicular to the planes of the Purkinje
+cell dendritic arbors, and a strong input from a climbing fibre, a
+single axon which winds around the Purkinje cell and makes multiple
+contacts with it, see Fig.~\ref{fig:cerebellum}.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=11cm]{cerebellum.png}
+\end{center}
+\caption{A cartoon of the cerebellar circuitary. A vertical axon rises
+  from each granule cells, splits once and then extends horizontally
+  in two directions making connections with multiple Purkinje
+  cells. Each Purkinje cell has its own climbing fiber which winds up
+  around it.\label{fig:cerebellum}}
+\end{figure}
+
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+\node[neuron,text width=1cm, text height=0.35cm](PC){PC};
+\node[inh,text width=1cm, text height=0.35cm,left = 0.5cm of PC](BC){BC};
+\node[above = 1cm of PC](PCd){};
+\node[inh,text width=1cm, text height=0.35cm,right = 0.5cm of PCd](SC){SC};
+\node[above = 0.25cm of PC](PCc){};
+\node[scale = 0.2,fill=green,right = 2cm of PCc](PCcr){};
+\node[above = 1cm of PCd](PCdd){};
+\node[right = 0cm of PCdd](){PC dendrite};
+\node[left = 2cm of PC](PCl){};
+\node[gc,text width=1cm,below = 1.5cm of PCl](GC){GC};
+\node[inh,text width=1cm,left = 0.5cm of GC](GgC){GgC};
+\node[scale = 0.2,fill=red,above = 3cm of GC](GCa){};
+\node[scale = 0.01,fill=red,below = 2cm of GC](GCb){};
+\node[io,below = 2cm of PCcr](IO){IO};
+\node[scale =0.2,fill=green,above = 0.25cm of IO](IOa){};
+\node[scale =0.2,fill=green,left = 1.75cm of IOa](IOl){};
+\node[scale =0.01,below = 2.6cm of IOl](IOlb){};
+\node[area,text width=1cm, text height=0.35cm,below  = 3.5cm of PC](DCN){DCN};
+\node[scale=0.2,fill=black,right= 1.5cm of DCN](DCNr){};
+\node[area,text height=0.35cm,right = 2cm of DCNr](ma){motor areas};
+\node[area,text height=0.35cm,left = 2cm of GCb](ew){elsewhere};
+\path (PCdd) edge[-,line width=2pt](PC);
+\path (PC) edge[-o,line width=2pt] (DCN);
+\path (IO) edge[-,green,line width=2pt] node[anchor=west]{CF} (PCcr);
+\path (PCcr) edge[-<,green,line width=2pt] (PCc);
+\path (GC) edge[-,red,line width=2pt] (GCa);
+\path (GCa) edge[-<,red,line width=2pt] node[anchor=south]{PF}(PCd);
+\path (GCb) edge[-<,red,line width=2pt] node[anchor=west]{MF} (GC);
+\path (ew) edge[-<,red,line width=2pt] (DCN);
+\path (DCN) edge[-,black,line width=2pt] (DCNr);
+\path (DCNr) edge[-o,black,line width=2pt] (IO);
+\path (DCNr) edge[-<,black,line width=2pt] (ma);
+\path (IOa) edge[-,green,line width=2pt](IOl);
+\path (IOl) edge[-<,green, line width=2pt](IOlb);
+\path (GgC) edge[-o,blue, line width=2pt](GC);
+\path (BC) edge[-o,blue, line width=2pt](PC);
+\path (SC) edge[-o,blue, line width=2pt](PCd);
+\end{tikzpicture}
+\end{center}
+\caption{A schematic of the cerebellar circuit. The granule cells (GC)
+  receive input from a diverse range of other parts of the brain along
+  the mossy fibers (MF). Each granule cell will combine input from
+  just three or four mossy fibers and do this in lots of different
+  combinations. The parallel fiber (PF) carries spikes from the GC to
+  the Purkinje cell (PC) whose large dendrite is drawn as a line. The
+  PC also receives input from a climbing fiber (CF) coming from
+  Inferior Olivary Nucleus (IO). In turn it sends an inhibitory signal
+  to the Deep Cerebellar Nucleus (DCN); the DCN has inhibitory neurons
+  which act on IO and excitatory neurons which act on the motor
+  system. The basket cells (BC), the Golgi cells (GgC) and the
+  stellate cells (SC) are all local inhibitory
+  cells.\label{fig:connectivity}}
+\end{figure}
+
+Another peculiarity is that the Purkinje cell has different responses
+to different inputs; in response to multiple weak inputs from the
+parallel fibers it fires a normal sort of spike, called in this
+context a \textsl{simple spike}; in response to single spike from the
+climbing fiber is fires a special spike, called a \textsl{complex
+  spike}, with a leading spike, a number of small \lq{}spikelets\rq{}
+and a sustained after-period of depolarization; this is illustrated in
+Fig.~\ref{fig:spikes}.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=8.cm]{complex_spike.png}
+\end{center}
+\caption{A complex spike. This drawing shows a simple spikes in black
+  and a complex spike in red. The complex spike is followed by a long
+  refractory period during which spiking is not possible. This is a
+  sketch, not an actual recording, but a typical time scale would have
+  this refractory period 50 ms long.\label{fig:spikes}}
+\end{figure}
+
+If there is a forward model it seems likely to be supported by the
+cerebellum \citep{GaoEtAl1996}. The cerebellum receives input from the motor areas. The
+Purkinje cells receive a huge number of input and so appear to be
+capable of calculations akin to large matrix multiplications. Finally,
+the Purkinje cell has a second input type and this is thought to
+communicate an error signal allowing the cerebellum to perform
+supervised learning, in other words there seems to be a mechanism for
+updating the forward model \citep{Marr1969,Albus1971}.
+
+
 
 \bibliographystyle{apa} \bibliography{../../source/bibliography}{}
 

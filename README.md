@@ -23,12 +23,20 @@ This field is highlight interdisciplinary, as such there is no single textbook t
 ##### \** Super useful math/stat cheat-sheet by Iain Murray:<br> https://homepages.inf.ed.ac.uk/imurray2/pub/cribsheet.pdf
 
 #### Recommended reading by lectures:
-Lecturer 2-3, Information theory: 1,4 (and lecturer notes)<br>
-Lecturer 4-5, Statistical theory: 1,4 (and lecturer notes)<br>
-Lecturer 6-7, Probabilistic brain: 1,4 (and lecturer notes)<br>
-Lecturer 8-9, Guest lectures<br>
-Lecturer 10, Learning in the brain: 1,4<br>
-Lecturer 11-12, Visual System: conv nets et al.: 5,6<br>
-Lecturer 13-14: Auditory cortex: Recurrent neural networks: 1,4 <br>
-Lecturer 15-16: Reinforcement Learning: TD-learning, Q-Learning, Deep RL: 1,7<br>
-Lecturer 17-20: Neural Data Analysis<br>
+Conor:<br>
+Lecturer 1-3: Information theory (1,4 and lecturer notes)<br>
+Lecturer 4-5: Statistical theory (1,4 and lecturer notes)<br>
+Lecturer 6-7,9: Probabilistic brain (1,4 and lecturer notes)<br>
+<br>
+Lecturer 8: Guest lecture<br>
+<br>
+Rui: Neural circuits and learning<br>
+Lecturer 10: Different forms of learning (1,4)<br>
+Lecturer 11-12: Visual System: conv nets and backprop (5,6)<br>
+Lecturer 13: Sparse coding and autoencoders (5,6)<br>
+Lecturer 14: Reinforcement Learning: TD-learning, Q-Learning, Deep RL (1,7)<br>
+Lecturer 15-16: Auditory cortex, Recurrent neural networks, gated RNNs (1,4) <br>
+
+<br>
+Cian:<br>
+Lecturer 17-18: Neural Data Analysis<br>
