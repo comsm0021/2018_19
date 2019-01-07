@@ -136,7 +136,7 @@ Here $Z$ just stands for the normalization stuff on the bottom which
 we won't look at closely. Clearly the clever bit is that the
 recognition model is performing a Bayesian loop, updating the
 posterior for time $t$ based on the previous prior and then using that
-as the prior when working out time $t-1$. The distribution for
+as the prior when working out time $t+1$. The distribution for
 $\mathbf{x}$ conditioned on the value of the target doesn't depend on
 previous results since we are assuming the generator model is time
 independent; we know this distribution in that we've assumed, as
@@ -184,7 +184,7 @@ In \cite{YuDayanCohen2009} this is simulated for the two hypotheses. The results
 \begin{center}
   \includegraphics[width=4.5cm]{flanker_model1.png}
 \end{center}
-\caption{This shows the model results for the first hypothesis, with, in (\textbf{top}) $\beta=1$ so there is no consistency bias and (\textbf{bottom}) with $\beta=0.9$ so there is a bias. Taken from \cite{YuDayanCohen2009}. \label{fig_h1}}
+\caption{This shows the model results for the first hypothesis, with, in (\textbf{top}) $\beta=0.5$ so there is no consistency bias and (\textbf{bottom}) with $\beta=0.9$ so there is a bias. Taken from \cite{YuDayanCohen2009}. \label{fig_h1}}
 \end{figure}
 
 
