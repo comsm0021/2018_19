@@ -3,8 +3,8 @@
 \usepackage{amsmath,amsfonts,amssymb}   
 
 \newif\ifanswer
-\answertrue
-%\answerfalse
+%\answertrue
+\answerfalse
 
 \let\imp=\Rightarrow
 \let\iff=\Leftrightarrow
@@ -308,11 +308,15 @@ $$
 
 \item{}[3 marks] The equation for the standard pairwise maximum entropy model differs from the above by one term. Which term does it omit? 
 
-\item{}[6 marks] How many unique parameters do each of the pairwise and K-pairwise maximum entropy models have? 
+\ifanswer \textbf{Answer:} The third term on the right hand side $V(\sum_i x_i)$ is omitted from the pairwise model. \fi
+
+\item{}[6 marks] How many unique parameters do each of the pairwise and K-pairwise maximum entropy models have?
+
+\ifanswer \textbf{Answer:} The pairwise model has $N + \frac{N(N-1)}{2}$ parameters, the K-pairwise model has  $N + \frac{N(N-1)}{2} + N + 1$ parameters. In each case the first $N$ parameters correspond to each of the individual neuron biases, the $h_i$'s. The second set of parameters are the pairwise couplings, $J_{ij}$'s. There is one of these for every possible pair of neurons. The division by two is because the couplings are symmetric, so $J_{ij}=J_{ji}$. And the K-pairwise model has a further $N+1$ parameters, one for each of the possible numbers of neurons simultaneously active, $k=0, k=1, k=2,\ldots,k=N$. [3 marks for each case. In both cases partial marks will be awarded for an approximately right answer that provides some reasoning.] \fi
 
 \item{}[1 mark]  Which of the two models more accurately matches neural population data? [1 mark]
 
-\ifanswer \textbf{answers to appear} \fi
+\ifanswer \textbf{Answer:} The K-pairwise model more accurately matches the data: it captures some higher-order correlations. Also, since the pairwise model is a special case of the K-pairwise (where all the $V$ terms equal zero), then the K-pairwise model must only do at least as well as or better than the pairwise model.\fi
   
 \end{enumerate}
 
