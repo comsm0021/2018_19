@@ -94,7 +94,7 @@ Gau\ss{}ian random walk:
 \begin{equation}
 \mu_i(t+1)=\lambda \mu_i(t)+(1-\lambda)\mu_0+v
 \end{equation}
-where $t$ is the trial number, $\mu_0$ is the mean value for the mean,
+where $t$ is the trial number, $\mu_0$ is the initial value for the mean,
 $\lambda$ is a parameter controlling how rapidly the mean reward heads
 towards $\mu_0$ and $v$ is drawn independently for each trial from a
 zero mean Gau\ss{}ian with variance $\sigma_v^2$. The actual reward
@@ -125,7 +125,7 @@ trial to the next the estimate $\tilde{\mu}_i$ is updated according to
 \end{equation}
 and the estimate of the uncertainty of this estimate is updated as
 \begin{equation}
-\tilde{\sigma}^{2-}_i(t+1)=\tilde{\lambda}^2\tilde{\sigma}^2_i(t+1)+\sigma^2_v
+\tilde{\sigma}^{2-}_i(t+1)=\tilde{\lambda}^2\tilde{\sigma}^2_i(t)+\sigma^2_v
 \end{equation}
 where in both equations the subscripted $-$ indicates this is the
 predicted value before taking into account the actual observation, the
