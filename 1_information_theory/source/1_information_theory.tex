@@ -349,10 +349,14 @@ p_{X,Y}(x,y)=p_{X|Y}(x|y)p_Y{y}
 Now
 \begin{eqnarray}
 H(X,Y)&=&-\sum_{x,y} p_{X,Y}(x,y)\log_2{p_{X,Y}(x,y)}\cr
-&=&-\sum_{x,y} p_{X,Y}(x,y)\log_2{p_{X|Y}(x|y)p_Y(y)}\cr
-&=&-\sum_{x,y} p_{X|Y}(x|y)p_Y(y)\log_2{p_{X|Y}(x|y)}-\sum_y p_{Y}(y)\log_2{p_Y(y)}
+&=&-\sum_{x,y} p_{X,Y}(x,y)\log_2{p_{Y|X}(y|x)p_X(x)}\cr
+&=&-\sum_{x,y} p_{Y|X}(y|x)p_X(x)\log_2{p_{Y|X}(y|x)}\cr&&-\sum_x p_{X}(x)\log_2{p_X(x)}
 \end{eqnarray}
-or
+using
+\begin{eqnarray}
+\sum_{x,y}p_{X,Y}(x,y)\log_2{p_X(x)}&=&\sum_{x}\left(\sum_y p_{X,Y}(x,y)\right)\log_2{p_X(x)}\cr &&=\sum_x p_{X}(x)\log_2{p_X(x)}
+\end{eqnarray}
+Thus
 \begin{equation}
 H(X,Y)=H(X)+H(Y|X)
 \end{equation}
@@ -371,7 +375,7 @@ separately, minus the amount of information in them considered
 together. If the two distributions are independent, then $I(X,Y)=0$
 since $H(X,Y)=H(X)+H(Y)$: this follows from the chain rule, since
 $H(Y|X)=H(X)$ when $X$ and $Y$ are independent. Conversely, if $Y$ is
-determined by $X$ then $H(X|Y)=0$ and $H(X,Y)=H(X)$ and $I(X,Y)=H(Y)$.
+determined by $X$ then $H(Y|X)=0$ and $H(X,Y)=H(X)$ and $I(X,Y)=H(Y)$.
 
 Combining the mutual information and the chain rule give two other expressions
 \begin{equation}
