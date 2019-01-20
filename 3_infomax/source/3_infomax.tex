@@ -91,8 +91,12 @@ An important difference is demonstrated by the following formula: if
 $Y=g(X)$ are two random variables related by an invertible function
 $g$ 
 \begin{equation} 
-p_Y(\lambda x)=\frac{p_X(x=g^{-1}(y))}{|g'(x)|}
-\end{equation} 
+p_Y(y)=\frac{p_X(x=g^{-1}(y))}{|g'(x)|}
+\end{equation}
+In other words, the probability at $y$, $p_Y(y)$, is not just the
+probability at the corresponding value of $x$, $p_X(g^{-1}(y))$, using
+$x=g^{-1}(y)$, there is an additional scaling factor given by $g'(x)$.
+
 To see roughly where this comes from, consider a simple scaling
 $Y=\lambda X$, now, to preserve the probabilities
 \begin{equation}
@@ -102,7 +106,7 @@ but if you do a change of variables $y=\lambda x$ on the left hand side this giv
 \begin{equation}
 \int_a^b p_Y(\lambda x)\lambda dx=\int_{a}^b p_X(x)dx
 \end{equation}
-which means
+Thus, if $y=\lambda x$ then $g'(x)=\lambda$ and
 \begin{equation}
 p_Y(y)=\frac{p_x(x)}{\lambda}
 \end{equation}
